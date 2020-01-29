@@ -1,0 +1,47 @@
+header#header-style-1 {
+  height: 180px;
+
+  .torque-header-content-wrapper {
+    .torque-header-left-area-wrapper {
+      
+    }
+
+    .torque-header-logo-wrapper {
+      div {
+        width: auto;
+        text-align: center;
+      }
+    }
+
+    .torque-header-right-area-wrapper {
+
+      .header-cta-one-wrapper {
+        display: inline-block;
+
+        .cta-one-text {
+          display: inline-block;
+          font-weight: bold;
+        }
+        
+        .cta-one-link {
+          display: inline-block;
+          cursor: pointer;
+        }
+      }
+
+      .header-cta-two-wrapper {
+        display: inline-block;
+        
+        .cta-two-button {
+          
+        }
+      }
+    }
+  }
+
+  .torque-header-menu-items-mobile {
+    // @include respond-to(desktop) {
+    //   display: none;
+    // }
+  }
+}
