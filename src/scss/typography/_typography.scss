@@ -34,31 +34,36 @@ h6 {
 }
 
 h1 {
-  font-size: 2.5em; // ~35px
+  font-size: 3.4375em; // ~55px
   font-weight: 400;
-  letter-spacing: 2px;
+  margin-top: 0;
+  color: $bluegreen;
   
   @include respond-to(tablet) {
-    font-size: 3.75em; // ~60px
+    font-size: 4.5em; // ~72px
   }
   @include respond-to(desktop) {
-    font-size: 4.375em; // ~70px
+    font-size: 5.125em; // ~82px
   }
 }
 
 h2 {
-  font-size: 4.2857em; // ~60px
-  font-weight: 700;
-  letter-spacing: 3.43px;
-
-  @include respond-to(tablet) {}
-  @include respond-to(desktop) {}
+  font-size: 1.625em; // ~26px
+  font-weight: 400;
+  margin-top: 0;
+  color: $bluegreen;
+  
+  // @include respond-to(tablet) {}
+  @include respond-to(desktop) {
+    font-size: 2.125em; // ~34px
+  }
 }
 
 h3 {
   font-size: 3.125em; // ~50px
   font-weight: 500;
-  letter-spacing: 2.86px;
+  margin-top: 0;
+  color: $bluegreen;
 
   @include respond-to(tablet) {}
   @include respond-to(desktop) {}
@@ -67,7 +72,7 @@ h3 {
 h4 {
   font-size: 1.7857em; // ~25px 
   font-weight: 500;
-  letter-spacing: 2.29px;
+  margin-top: 0;
   
   @include respond-to(tablet) {
     font-size: 2.1875em; // ~35px
@@ -80,6 +85,7 @@ h4 {
 h5 {
   font-size: 1.875em; // ~30px
   font-weight: 500;
+  margin-top: 0;
 
   @include respond-to(tablet) {
     // font-size: 1.875em; // ~30px

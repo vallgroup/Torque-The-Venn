@@ -1,0 +1,171 @@
+%hideOnDesktop {
+  @include respond-to(desktop) {
+    display: none !important;
+  }
+}
+%hideOnTablet {
+  @media only screen and (max-width: $TabletMaxWidth) and (min-width: $MobileMaxWidth + 1px) {
+    display: none !important;
+  }
+}
+%hideOnMobile {
+  @include respond-to-max(tablet) {
+    display: none !important;
+  }
+}
+
+%imageSize {
+  position: relative;
+  padding-bottom: 80%;
+  width: 100%;
+  height: 0;
+
+  @include respond-to(tablet) {
+    padding-bottom: 56%;
+  }
+
+  @include respond-to(desktop) {
+    padding-bottom: 46%;
+  }
+}
+
+%imageSizeHalf {
+  position: relative;
+  padding-bottom: 65%;
+  width: 100%;
+  height: 0;
+
+  @include respond-to(tablet) {
+    padding-bottom: 45%;
+  }
+
+  @include respond-to(desktop) {
+    padding-bottom: 35%;
+  }
+}
+
+%imageInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+%useBackgroundGraphic_Setup {
+  z-index: -1;
+  @include respond-to(tablet) {
+    background-size: auto 100%;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 120%;
+    max-height: 560px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}
+%useBackgroundGraphic_Left {
+  @extend %useBackgroundGraphic_Setup;
+  
+  @include respond-to(tablet) {
+    background-image: url("../statics/images/diamond-graphic-left.png");
+    background-position-x: -30%;
+  }
+}
+%useBackgroundGraphic_Left_Alt {
+  @extend %useBackgroundGraphic_Setup;
+  
+  @include respond-to(tablet) {
+    background-image: url("../statics/images/diamond-graphic-left-alt.png");
+    background-position-x: -30%;
+  }
+}
+%useBackgroundGraphic_Right {
+  @extend %useBackgroundGraphic_Setup;
+  
+  @include respond-to(tablet) {
+    background-image: url("../statics/images/diamond-graphic-right.png");
+    background-position-x: 130%;
+  }
+}
+%useBackgroundGraphic_Right_Alt {
+  @extend %useBackgroundGraphic_Setup;
+  
+  @include respond-to(tablet) {
+    background-image: url("../statics/images/diamond-graphic-right-alt.png");
+    background-position-x: 130%;
+  }
+}
+
+%contentRightGraphicLeft {
+  width: 100%;
+
+  @include respond-to(tablet) {
+    width: 70%;
+    margin-left: 30%;
+  }
+  @include respond-to(desktop) {
+    width: 60%;
+    margin-left: 40%;
+  }
+}
+%contentLeftGraphicRight {
+  width: 100%;
+
+  @include respond-to(tablet) {
+    width: 70%;
+    margin-right: 30%;
+  }
+  @include respond-to(desktop) {
+    width: 60%;
+    margin-right: 40%;
+  }
+}
+
+%contentTagline {
+  font-size: 1.125em; // ~18px
+
+  @include respond-to(tablet) {
+    font-size: 1.3125em; // ~21px
+  }
+}
+
+// %useButtonLight {
+//   color: $white;
+//   border-color: $white;
+// }
+
+// %useButtonSolid {
+//   color: $white;
+//   background-color: $green-medium-100;
+//   border-color: $green-medium-100;
+
+//   padding: 1.5px 30px;
+
+//   &:hover {
+//     color: $white;
+//     background-color: $green-medium-100;
+//     border-color: $green-medium-100;
+//     opacity: 0.8;
+//   }
+// }
+
+// %useAlignmentStyle {
+//   // intro alignment
+//   &.align-left {
+//     text-align: left;
+//   }
+//   &.align-center {
+//     text-align: center;
+//   }
+//   &.align-right {
+//     text-align: right;
+//   }
+// }

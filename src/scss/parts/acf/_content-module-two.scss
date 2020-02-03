@@ -1,0 +1,50 @@
+.content-module-two-container {
+  position: relative;
+  width: 100%;
+
+  .content-container {
+    // h1 {}
+    .content-tagline {
+      @extend %contentTagline;
+    }
+    // .content-wrapper {}
+    .cta-btn {
+      
+    }
+  }
+
+  // Top Row: text left, image right
+  // Bottom Row: text right, image left
+  // Graphic: right
+  &.alignment-style_1 {
+
+    &.include-graphic {
+      .graphic-container {
+        @extend %useBackgroundGraphic_Right;
+      }
+      &.alternate-graphic {
+        .graphic-container {
+          @extend %useBackgroundGraphic_Right_Alt;
+        }
+      }
+    }
+  }
+
+  // Top Row: text right, image left
+  // Bottom Row: text left, image right
+  // Graphic: left
+  &.alignment-style_2 {
+
+    &.include-graphic {
+      .graphic-container {
+        @extend %useBackgroundGraphic_Left;
+      }
+      &.alternate-graphic {
+        .graphic-container {
+          @extend %useBackgroundGraphic_Left_Alt;
+        }
+      }
+    }
+
+  }
+}

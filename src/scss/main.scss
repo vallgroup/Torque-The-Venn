@@ -4,4 +4,19 @@
 
 @import 'typography/typography';
 
+// extends
+@import 'partials/extends';
+
+// mixins
+@import 'partials/mixins/header';
+
+// header
 @import 'parts/shared/header-templates/header-style-1';
+
+// shared
+@import 'parts/shared/page-hero';
+@import 'parts/shared/page-hero-filler';
+
+// acf
+@import 'parts/acf/content-module-one';
+@import 'parts/acf/content-module-two';

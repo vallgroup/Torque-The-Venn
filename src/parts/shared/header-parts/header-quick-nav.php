@@ -1,31 +1,23 @@
 <? // Template for displaying the header quick nav
 
-// TODO
+if ( have_rows( 'quick_nav', 'options' ) ): ?>
 
-// ACF data
-$quick_nav = get_field( 'quick_nav', 'options' ); 
+  <div class="header-quick-nav-wrapper">
 
-// var_dump( $quick_nav );
-
-if ( have_rows( $quick_nav ) ): ?>
-
-  <div class="">
-
-    <? // while ( have_rows( $quick_nav ) ) : the_row();
-    foreach ( $quick_nav as $nav_item ) {
+    <? while ( have_rows( 'quick_nav', 'options' ) ) : the_row();
       
-      // $nav_item = get_sub_field('nav_item'); 
-      // var_dump( $nav_item ); 
-      ?>
+      // get the nav item instance
+      $nav_item = get_sub_field('nav_item'); ?>
 
       <a 
+        class="quick-nav-item"
         href="<?php echo $nav_item['url']; ?>" 
         target="<?php echo $nav_item['target']; ?>"
       >
         <?php echo $nav_item['title']; ?>
       </a>
 
-    <? } // endwhile; ?>
+    <? endwhile; ?>
 
   </div>
 

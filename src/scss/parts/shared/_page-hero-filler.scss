@@ -1,0 +1,8 @@
+.page-header-filler {
+  // set height
+  @include useHeaderHeight(height, false);
+  // set negative margin so sits behind nav bar
+  @include useHeaderHeight(margin-top, true);
+
+  background-color: $paleBlue;
+}

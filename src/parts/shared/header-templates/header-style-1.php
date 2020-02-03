@@ -28,22 +28,23 @@ $extra_classes = isset($tq_header_style_1_classes) ? $tq_header_style_1_classes 
 
   <div class="row torque-header-content-wrapper torque-navigation-toggle">
 
-    <div style="background-color: yellow;" class="col3 torque-header-left-area-wrapper">
+    <div class="torque-header-left-area-wrapper">
       <?php // Burger Nav Toggle
         get_template_part( 'parts/elements/element', 'burger-menu-squeeze');
       ?>
       <?php // Quick Nav 
+        // include locate_template('/parts/shared/header-parts/header-quick-nav.php');
         get_template_part( 'parts/shared/header-parts/header-quick-nav');
       ?>
     </div>
 
-    <div style="background-color: green;" class="col4 torque-header-logo-wrapper">
+    <div class="torque-header-center-area-wrapper torque-header-logo-wrapper">
       <?php // Logo
         get_template_part( 'parts/shared/logo', $logo_dark_light);
       ?>
     </div>
 
-    <div style="background-color: blue;" class="col3 torque-header-right-area-wrapper">
+    <div class="torque-header-right-area-wrapper">
       <?php // CTA 1 (text)
         get_template_part( 'parts/shared/header-parts/header-cta', 'one');
         ?>
@@ -57,7 +58,13 @@ $extra_classes = isset($tq_header_style_1_classes) ? $tq_header_style_1_classes 
   <!-- Burger Nav Items -->
 
   <div class="col1 torque-navigation-toggle torque-header-menu-items-mobile">
+    <!-- <svg class="diagonal-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" shape-rendering="geometricPrecision">
+      <polygon points="0,100 50,0 100,0 100,100"/>
+    </svg> -->
     <?php get_template_part( 'parts/shared/header-parts/menu-items/menu-items', 'stacked'); ?>
+    <!-- <svg class="diagonal-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" shape-rendering="geometricPrecision">
+      <polygon points="0,0 100,0 100,100"/>
+    </svg> -->
   </div>
 
 </header>
