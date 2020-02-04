@@ -26,6 +26,10 @@ $extra_classes = isset($tq_header_style_1_classes) ? $tq_header_style_1_classes 
   class="torque-header <?php echo $extra_classes; ?>"
   style="background-color: <?php echo $background_color; ?>">
 
+  <?php // Notification bar
+    get_template_part( 'parts/shared/header-parts/header-notification-bar');
+  ?>
+
   <div class="row torque-header-content-wrapper torque-navigation-toggle">
 
     <div class="torque-header-left-area-wrapper">
@@ -47,7 +51,7 @@ $extra_classes = isset($tq_header_style_1_classes) ? $tq_header_style_1_classes 
     <div class="torque-header-right-area-wrapper">
       <?php // CTA 1 (text)
         get_template_part( 'parts/shared/header-parts/header-cta', 'one');
-        ?>
+      ?>
       <?php // CTA 2 (button)
         get_template_part( 'parts/shared/header-parts/header-cta', 'two');
       ?>

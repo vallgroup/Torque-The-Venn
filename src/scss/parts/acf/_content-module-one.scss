@@ -46,7 +46,7 @@
     }
     // .content-wrapper {}
     .cta-btn {
-
+      @extend %useButtonDark;
     }
   }
 }

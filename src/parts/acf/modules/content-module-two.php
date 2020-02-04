@@ -3,17 +3,6 @@
  * Template file for displaying Content Module Two
  */
 
-// // top row
-// var_dump($tr_title);
-// var_dump($tr_content);
-// var_dump($tr_call_to_action);
-// var_dump($tr_image);
-// // bottom row
-// var_dump($br_title);
-// var_dump($br_content);
-// var_dump($br_call_to_action);
-// var_dump($br_image);
-
 // options
 $alignment_style_class = 'alignment-' . $alignment_style;
 $include_graphic_class = $include_graphic ? 'include-graphic' : '';
@@ -73,7 +62,7 @@ $alternate_graphic_class = $alternate_graphic ? 'alternate-graphic' : '';
     <div class="image-container">
       <?php if ( $br_image ) { ?>
         <div class="image-wrapper">
-          <img src="<?php echo $tr_image['sizes']['large']; ?>"/>
+          <img src="<?php echo $br_image['sizes']['large']; ?>"/>
         </div>
       <?php } ?>
     </div>

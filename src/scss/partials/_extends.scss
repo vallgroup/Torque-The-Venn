@@ -2,7 +2,7 @@
   @include respond-to(desktop) {
     display: none !important;
   }
-}
+} 
 %hideOnTablet {
   @media only screen and (max-width: $TabletMaxWidth) and (min-width: $MobileMaxWidth + 1px) {
     display: none !important;
@@ -137,35 +137,40 @@
   }
 }
 
-// %useButtonLight {
-//   color: $white;
-//   border-color: $white;
-// }
+%useButton_Setup {
+  font-size: 1.125em; // ~18px
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid;
+  display: inline-block;
+  position: relative;
+  padding: 11.5px 18px 6.5px 13px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 
-// %useButtonSolid {
-//   color: $white;
-//   background-color: $green-medium-100;
-//   border-color: $green-medium-100;
+  @include respond-to(tablet){
+    font-size: 1.5em; // ~24px
+  }
 
-//   padding: 1.5px 30px;
+  &:after {
+    content: '';
+    border: 1px solid;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: -5px;
+    top: 5px;
+  }
+}
+%useButtonLight {
+  @extend %useButton_Setup;
 
-//   &:hover {
-//     color: $white;
-//     background-color: $green-medium-100;
-//     border-color: $green-medium-100;
-//     opacity: 0.8;
-//   }
-// }
-
-// %useAlignmentStyle {
-//   // intro alignment
-//   &.align-left {
-//     text-align: left;
-//   }
-//   &.align-center {
-//     text-align: center;
-//   }
-//   &.align-right {
-//     text-align: right;
-//   }
-// }
+  color: $white;
+  border-color: $white;
+}
+%useButtonDark {
+  @extend %useButton_Setup;
+  
+  color: $bluegreen;
+  border-color: $bluegreen;
+}

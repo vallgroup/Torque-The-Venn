@@ -2,14 +2,36 @@
   position: relative;
   width: 100%;
 
-  .content-container {
-    // h1 {}
-    .content-tagline {
-      @extend %contentTagline;
+  .top-row-container,
+  .bottom-row-container {
+    display: flex;
+    @include respond-to(tablet) {
     }
-    // .content-wrapper {}
-    .cta-btn {
-      
+
+    .content-container {
+      box-sizing: border-box;
+      padding: $bodyPadding1 $bodyPadding0;
+
+      @include respond-to(tablet) {
+        padding: $bodyPadding2 $bodyPadding1;
+      }
+      // h1 {}
+      .content-tagline {
+        @extend %contentTagline;
+      }
+      // .content-wrapper {}
+      .cta-btn {
+        @extend %useButtonDark;
+      }
+    }
+  
+    .image-container {
+      .image-wrapper {
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
     }
   }
 
@@ -18,7 +40,35 @@
   // Graphic: right
   &.alignment-style_1 {
 
+    .top-row-container {
+      flex-direction: row;
+      align-items: center;
+
+      .content-container {
+        flex: 1;
+      }
+      .image-container {
+        flex: 2;
+      }
+    }
+    .bottom-row-container {
+      flex-direction: row-reverse;
+      align-items: center;
+
+      .content-container {
+        flex: 1;
+      }
+      .image-container {
+        flex: 1;
+      }
+    }
+
     &.include-graphic {
+      .bottom-row-container {
+        .content-container {
+          padding-top: $bodyPadding1;
+        }
+      }
       .graphic-container {
         @extend %useBackgroundGraphic_Right;
       }
@@ -34,6 +84,29 @@
   // Bottom Row: text left, image right
   // Graphic: left
   &.alignment-style_2 {
+
+    .top-row-container {
+      flex-direction: row-reverse;
+      align-items: center;
+
+      .content-container {
+        flex: 1;
+      }
+      .image-container {
+        flex: 2;
+      }
+    }
+    .bottom-row-container {
+      flex-direction: row;
+      align-items: center;
+
+      .content-container {
+        flex: 1;
+      }
+      .image-container {
+        flex: 1;
+      }
+    }
 
     &.include-graphic {
       .graphic-container {
