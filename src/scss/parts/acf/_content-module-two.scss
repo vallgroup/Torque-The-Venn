@@ -35,6 +35,12 @@
     }
   }
 
+  .bottom-row-container {
+    @include respond-to(desktop) {
+      padding-top: $bodyPadding0;
+    }
+  }
+
   // Top Row: text left, image right
   // Bottom Row: text right, image left
   // Graphic: right

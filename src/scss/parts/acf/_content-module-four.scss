@@ -1,0 +1,46 @@
+.content-module-four-container {
+  position: relative;
+  width: 100%;
+
+  padding: $bodyPadding1;
+  box-sizing: border-box;
+
+  .content-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    
+    @include respond-to(tablet) {
+      flex-direction: row;
+    }
+
+    .column-container {
+      @include respond-to-max(tablet) {
+        padding-bottom: $bodyPadding0;
+      }
+
+      @include respond-to(tablet) {
+        padding-right: $bodyPadding0;
+      }
+
+      p,
+      li {
+        margin-top: 0.7em;
+        margin-bottom: 0.7em;
+      }
+    }
+  }
+
+  &.align-content-right {
+    .content-container {
+      @extend %contentRightSpaceLeft_DesktopOnly;
+    }
+  }
+
+  &.align-content-left {
+    .content-container {
+      @extend %contentLeftSpaceRight_DesktopOnly;
+    }
+  }
+}

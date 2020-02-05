@@ -2,8 +2,21 @@
   position: relative;
   width: 100%;
 
-  padding: $bodyPadding1 $bodyPadding0;
+  padding: $bodyPadding1;
   box-sizing: border-box;
+
+  .content-container {
+    h1 {
+      margin-bottom: 3vw;
+    }
+    .content-tagline {
+      @extend %contentTagline;
+    }
+    // .content-wrapper {}
+    .cta-btn {
+      @extend %useButtonDark;
+    }
+  }
 
   &.align-content-right {
     &.include-graphic {
@@ -18,7 +31,7 @@
       }
     }
     .content-container {
-      @extend %contentRightGraphicLeft;
+      @extend %contentRightSpaceLeft;
     }
   }
 
@@ -35,18 +48,7 @@
       }
     }
     .content-container {
-      @extend %contentLeftGraphicRight;
-    }
-  }
-
-  .content-container {
-    // h1 {}
-    .content-tagline {
-      @extend %contentTagline;
-    }
-    // .content-wrapper {}
-    .cta-btn {
-      @extend %useButtonDark;
+      @extend %contentLeftSpaceRight;
     }
   }
 }

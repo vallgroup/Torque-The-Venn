@@ -92,4 +92,11 @@ function torque_enqueue_child_scripts() {
     );
 }
 
+
+/**
+ * Jetpack filters, for local/staging use
+ */
+// add_filter( 'jetpack_development_mode', '__return_true' );
+add_filter( 'jetpack_is_staging_site', '__return_true' );
+
 ?>

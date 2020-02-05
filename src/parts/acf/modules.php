@@ -8,6 +8,16 @@ if ( have_rows( $modules ) ):
 
     switch ( get_row_layout() ) {
 
+      case 'content_spacer' :
+
+        // options
+        $spacer_height = get_sub_field( 'spacer_height' );
+        $spacer_measurement = get_sub_field( 'spacer_measurement' );
+
+        include locate_template('/parts/acf/modules/content-spacer.php');
+
+        break;
+
       case 'content_module_one' :
 
         // options
@@ -59,6 +69,24 @@ if ( have_rows( $modules ) ):
         $image = $bottom_row['image'];
 
         include locate_template('/parts/acf/modules/content-module-three.php');
+
+        break;
+
+      case 'content_module_four' :
+
+        // options
+        $options = get_sub_field( 'options' );
+        $align_content = $options['align_content'];
+        // left column
+        $left_column = get_sub_field( 'left_column' );
+        $lc_title = $left_column['title'];
+        $lc_content = $left_column['content'];
+        // right column
+        $right_column = get_sub_field( 'right_column' );
+        $rc_title = $right_column['title'];
+        $rc_content = $right_column['content'];
+
+        include locate_template('/parts/acf/modules/content-module-four.php');
 
         break;
 

@@ -4,7 +4,7 @@
 body {
   background: $white;
   color: $grayLight;
-  font-family: $fontFamilyPrimary;
+  font-family: $fontFamilyBody;
   font-weight: 400;
   font-size: $fontBodyMobile; // 14px
 
@@ -21,7 +21,7 @@ input,
 select,
 optgroup,
 textarea {
-  font-family: $fontFamilySecondary;
+  font-family: $fontFamilyHeading;
 }
 
 h1,
@@ -30,7 +30,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $fontFamilySecondary;
+  font-family: $fontFamilyHeading;
 }
 
 h1 {
@@ -50,6 +50,7 @@ h1 {
 h2 {
   font-size: 1.625em; // ~26px
   font-weight: 400;
+  font-family: $fontFamilyBody;
   margin-top: 0;
   color: $bluegreen;
   
