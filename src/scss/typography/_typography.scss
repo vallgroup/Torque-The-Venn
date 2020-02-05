@@ -64,7 +64,7 @@ h3 {
   font-size: 3.125em; // ~50px
   font-weight: 500;
   margin-top: 0;
-  color: $bluegreen;
+  color: $grayMedium;
 
   @include respond-to(tablet) {}
   @include respond-to(desktop) {}

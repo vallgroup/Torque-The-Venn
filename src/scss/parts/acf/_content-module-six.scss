@@ -1,0 +1,55 @@
+.content-module-six-container {
+  position: relative;
+  width: 100%;
+  padding: $bodyPadding2;
+  box-sizing: border-box;
+
+  .content-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  // Content: left
+  // Form: right
+  // Graphic: none
+  &.alignment-style_1 {
+    .content-wrapper {
+
+      @include respond-to(tablet) {
+        .content-container {
+          max-width: 80%;
+        }
+      }
+
+      @include respond-to(desktop) {
+        flex-direction: row;
+        align-items: center;
+
+        .content-container {
+          max-width: 100%;
+          flex: 1;
+          padding-right: $bodyPadding0;
+        }
+        .form-container {
+          flex: 1;
+          padding-left: $bodyPadding0;
+        }
+      }
+
+      .graphic-container {
+        display: none;
+      }
+    }
+  }
+
+  // Content: top
+  // Form: bottom
+  // Graphic: left and right
+  &.alignment-style_2 {
+    .content-wrapper {
+      flex-direction: column;
+    }
+  }
+}

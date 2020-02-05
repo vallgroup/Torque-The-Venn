@@ -90,6 +90,29 @@ if ( have_rows( $modules ) ):
 
         break;
 
+      case 'content_module_five' :
+
+        // data
+        $image = get_sub_field( 'image' );
+
+        include locate_template('/parts/acf/modules/content-module-five.php');
+
+        break;
+
+      case 'content_module_six' :
+
+        // options
+        $options = get_sub_field( 'options' );
+        $alignment_style = $options['alignment_style'];
+        // data
+        $title = get_sub_field( 'title' );
+        $content = get_sub_field( 'content' );
+        $contact_form = get_sub_field( 'contact_form' );
+
+        include locate_template('/parts/acf/modules/content-module-six.php');
+
+        break;
+
     }
 
   endwhile;
