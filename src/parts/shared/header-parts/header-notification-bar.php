@@ -5,10 +5,11 @@ $notification_bar = get_field( 'top_notification_bar', 'options' );
 $enable_notification_bar = $notification_bar['enable_notification_bar'];
 $notification_bar_content = $notification_bar['notification_bar_content'];
 $notification_bar_cta = $notification_bar['notification_bar_cta'];
+$notification_bar_hide_on = $notification_bar['hide_on_pages'] ? $notification_bar['hide_on_pages'] : array();
 
-if ( $enable_notification_bar ) { ?>
+if ( $enable_notification_bar && !in_array( get_the_ID(), $notification_bar_hide_on ) ) { ?>
 
-<div class="notification-bar-container">
+<div id="top-notification-bar" class="notification-bar-container">
 
   <div class="notification-bar-content-wrapper">
 

@@ -11,20 +11,30 @@
  * can be found in the child theme boilerplate.
  */
 
-$background_color = isset($tq_header_style_1_color) && $tq_header_style_1_color !== ''
-  ? $tq_header_style_1_color
-  : 'transparent';
-
 $logo_dark_light = isset($tq_header_style_1_logo) && $tq_header_style_1_logo === 'white' ? 'white' : 'dark';
 
 $extra_classes = isset($tq_header_style_1_classes) ? $tq_header_style_1_classes : '';
+
+// Check if notification bar should be included, and assign class to header if so
+// NB: notification bar vars are also defined within the template part...
+$notification_bar = get_field( 'top_notification_bar', 'options' );
+$enable_notification_bar = $notification_bar['enable_notification_bar'];
+$notification_bar_hide_on = $notification_bar['hide_on_pages'] ? $notification_bar['hide_on_pages'] : array();
+$extra_classes .= $enable_notification_bar && !in_array( get_the_ID(), $notification_bar_hide_on ) 
+  ? ' include-notification-bar'
+  : '';
+
+// Check if hero image in-use. If not, add a header background class
+$extra_classes .= !get_field( 'enable_hero', get_the_ID() )
+  ? ' include-header-background'
+  : '';
 
 ?>
 
 <header
   id="header-style-1"
   class="torque-header <?php echo $extra_classes; ?>"
-  style="background-color: <?php echo $background_color; ?>">
+>
 
   <?php // Notification bar
     get_template_part( 'parts/shared/header-parts/header-notification-bar');

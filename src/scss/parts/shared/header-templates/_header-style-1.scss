@@ -4,43 +4,7 @@ $zIndexMenuOverlay: 997;
 header#header-style-1 {
   z-index: $zIndexMenuContainer;
   color: $white;
-  @include useHeaderHeight(height, false);
-
-  .notification-bar-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: $bodyPadding0-5;
-    box-sizing: border-box;
-    width: 100%;
-
-    background-color: $mediumGreen;
-
-    .notification-bar-content-wrapper {
-
-      .notification-bar-content {
-        padding-right: $bodyPadding0-5;
-      }
-  
-      .notification-bar-cta {
-        text-transform: uppercase;
-        text-decoration: underline;
-      }
-    }
-
-    .notification-bar-close-btn {
-      position: absolute;
-      right: $bodyPadding2;
-
-      transform: rotate(45deg);
-      transform-origin: center;
-
-      font-size: 2em;
-      font-weight: 300;
-      cursor: pointer;
-    }
-  }
+  height: auto; 
 
   .torque-header-content-wrapper {
     display: flex;
@@ -49,6 +13,8 @@ header#header-style-1 {
     align-items: center;
     justify-content: center;
     flex-direction: row-reverse;
+    
+    @include useHeaderHeight(height, false);
 
     @include respond-to(desktop) {
       flex-direction: row;
@@ -135,6 +101,57 @@ header#header-style-1 {
           margin-top: 0;
         }
       }
+    }
+  }
+
+  // notification bar
+  &.include-notification-bar {
+
+    .notification-bar-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      padding: $bodyPadding0-5;
+      box-sizing: border-box;
+      width: 100%;
+  
+      background-color: $mediumGreen;
+  
+      .notification-bar-content-wrapper {
+  
+        .notification-bar-content {
+          padding-right: $bodyPadding0-5;
+        }
+    
+        .notification-bar-cta {
+          text-transform: uppercase;
+          text-decoration: underline;
+        }
+      }
+  
+      .notification-bar-close-btn {
+        position: absolute;
+        right: $bodyPadding0;
+        
+        transform: rotate(45deg);
+        transform-origin: center;
+        
+        font-size: 2em;
+        font-weight: 300;
+        cursor: pointer;
+
+        @include respond-to(desktop) {
+          right: $bodyPadding2;
+        }
+      }
+    }
+  }
+
+  // header background
+  &.include-header-background {
+    .torque-header-content-wrapper {
+      background-color: $paleBlue;
     }
   }
 

@@ -5,12 +5,10 @@
  * @package Torque
  */
 
-$enable_hero = get_field('enable_hero');
+$enable_hero = get_field( 'enable_hero' );
 
 if ( $enable_hero ) {
-  get_template_part('parts/shared/page-hero');
-} else {
-  get_template_part('parts/shared/page-hero-filler');
-} 
+  get_template_part( 'parts/shared/page-hero' );
+}
 
 ?>
