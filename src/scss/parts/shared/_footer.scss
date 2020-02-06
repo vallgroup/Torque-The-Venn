@@ -28,11 +28,17 @@ footer {
 
     @include respond-to(desktop) {
       flex-basis: 25%;
+      padding-top: $bodyPadding0;
+      padding-bottom: 0;
     }
 
     &.footer-block-one {
       flex: 1 1 100%;
       text-align: center;
+
+      @include respond-to(desktop) {
+        flex: 1 1 35%;
+      }
 
       img {
         max-width: 180px;
@@ -53,9 +59,17 @@ footer {
     }
     
     &.footer-block-two {
+      @include respond-to(desktop) {
+        flex: 1 1 25%;
+      }
     }
     
     &.footer-block-three {
+
+      @include respond-to(desktop) {
+        flex: 1 1 40%;
+      }
+
       img {
         width: 100%;
         height: auto;
@@ -77,17 +91,21 @@ footer {
       align-items: center;
       justify-content: space-between;
 
-
       @include respond-to(tablet) {
         align-items: start;
       }
-      @include respond-to-max(desktop) {
-        img {
-          padding: 10px 5px;
-        }  
-      }
       @include respond-to(desktop) {
         flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      
+      img {
+        padding: 10px 5px;
+
+        @include respond-to(desktop) {
+          padding-right: 20px;
+        }
       }
     }
   }

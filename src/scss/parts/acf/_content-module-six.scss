@@ -38,7 +38,8 @@
         }
       }
 
-      .graphic-container {
+      .graphic-container-one,
+      .graphic-container-two {
         display: none;
       }
     }
@@ -50,6 +51,13 @@
   &.alignment-style_2 {
     .content-wrapper {
       flex-direction: column;
+
+      .graphic-container-one {
+
+      }
+      .graphic-container-two {
+        
+      }
     }
   }
 }

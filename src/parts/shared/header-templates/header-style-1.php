@@ -20,7 +20,7 @@ $extra_classes = isset($tq_header_style_1_classes) ? $tq_header_style_1_classes 
 $notification_bar = get_field( 'top_notification_bar', 'options' );
 $enable_notification_bar = $notification_bar['enable_notification_bar'];
 $notification_bar_hide_on = $notification_bar['hide_on_pages'] ? $notification_bar['hide_on_pages'] : array();
-$extra_classes .= $enable_notification_bar && !in_array( get_the_ID(), $notification_bar_hide_on ) 
+$extra_classes .= $enable_notification_bar && !in_array( get_the_ID(), $notification_bar_hide_on )
   ? ' include-notification-bar'
   : '';
 

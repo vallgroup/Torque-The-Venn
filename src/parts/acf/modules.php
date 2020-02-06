@@ -1,6 +1,7 @@
 <?php
 
 $modules = 'content_modules';
+$modules_path = '/parts/acf/modules/';
 
 if ( have_rows( $modules ) ):
 
@@ -14,7 +15,7 @@ if ( have_rows( $modules ) ):
         $spacer_height = get_sub_field( 'spacer_height' );
         $spacer_measurement = get_sub_field( 'spacer_measurement' );
 
-        include locate_template( '/parts/acf/modules/content-spacer.php' );
+        include locate_template( $modules_path . 'content-spacer.php' );
 
         break;
 
@@ -27,12 +28,12 @@ if ( have_rows( $modules ) ):
         $include_graphic = $options['include_graphic'];
         $alternate_graphic = $options['alternate_graphic'];
         // data
-        $title = get_sub_field( 'title' );
-        $tagline = get_sub_field( 'tagline' );
-        $content = get_sub_field( 'content' );
+        $title = strip_tags( get_sub_field( 'title' ), '<i><b><em><strong>' );
+        $tagline = strip_tags( get_sub_field( 'tagline'), '<i><b><em><strong>' );
+        $content = strip_tags( get_sub_field( 'content'), '<i><b><em><strong><p><br>' );
         $call_to_action = get_sub_field( 'call_to_action' );
 
-        include locate_template( '/parts/acf/modules/content-module-one.php' );
+        include locate_template( $modules_path . 'content-module-one.php' );
 
         break;
 
@@ -46,18 +47,18 @@ if ( have_rows( $modules ) ):
         $alternate_graphic = $options['alternate_graphic'];
         // top row
         $top_row = get_sub_field( 'top_row' );
-        $tr_title = $top_row['title'];
-        $tr_content = $top_row['content'];
+        $tr_title = strip_tags( $top_row['title'], '<i><b><em><strong>' );
+        $tr_content = strip_tags( $top_row['content'], '<i><b><em><strong><p><br>' );
         $tr_call_to_action = $top_row['call_to_action'];
         $tr_image = $top_row['image'];
         // bottom row
         $bottom_row = get_sub_field( 'bottom_row' );
-        $br_title = $bottom_row['title'];
-        $br_content = $bottom_row['content'];
+        $br_title = strip_tags( $bottom_row['title'], '<i><b><em><strong>' );
+        $br_content = strip_tags( $bottom_row['content'], '<i><b><em><strong><p><br>' );
         $br_call_to_action = $bottom_row['call_to_action'];
         $br_image = $bottom_row['image'];
 
-        include locate_template( '/parts/acf/modules/content-module-two.php' );
+        include locate_template( $modules_path . 'content-module-two.php' );
 
         break;
 
@@ -69,9 +70,9 @@ if ( have_rows( $modules ) ):
         $align_image = $options['align_image'];
         $include_graphic = $options['include_graphic'];
         // data
-        $image = $bottom_row['image'];
+        $image = get_sub_field( 'image' );
 
-        include locate_template( '/parts/acf/modules/content-module-three.php' );
+        include locate_template( $modules_path . 'content-module-three.php' );
 
         break;
 
@@ -83,14 +84,14 @@ if ( have_rows( $modules ) ):
         $align_content = $options['align_content'];
         // left column
         $left_column = get_sub_field( 'left_column' );
-        $lc_title = $left_column['title'];
-        $lc_content = $left_column['content'];
+        $lc_title = strip_tags( $left_column['title'], '<i><b><em><strong>' );
+        $lc_content = strip_tags( $left_column['content'], '<i><b><em><strong><p><br>' );
         // right column
         $right_column = get_sub_field( 'right_column' );
-        $rc_title = $right_column['title'];
-        $rc_content = $right_column['content'];
+        $rc_title = strip_tags( $right_column['title'], '<i><b><em><strong>' );
+        $rc_content = strip_tags( $right_column['content'], '<i><b><em><strong><p><br>' );
 
-        include locate_template( '/parts/acf/modules/content-module-four.php' );
+        include locate_template( $modules_path . 'content-module-four.php' );
 
         break;
 
@@ -100,7 +101,7 @@ if ( have_rows( $modules ) ):
         // data
         $image = get_sub_field( 'image' );
 
-        include locate_template( '/parts/acf/modules/content-module-five.php' );
+        include locate_template( $modules_path . 'content-module-five.php' );
 
         break;
 
@@ -111,11 +112,13 @@ if ( have_rows( $modules ) ):
         $options = get_sub_field( 'options' );
         $alignment_style = $options['alignment_style'];
         // data
-        $title = get_sub_field( 'title' );
-        $content = get_sub_field( 'content' );
-        $contact_form = get_sub_field( 'contact_form' );
+        $title = strip_tags( get_sub_field( 'title' ), '<i><b><em><strong>' );
+        $content = strip_tags( get_sub_field( 'content'), '<i><b><em><strong><p><br>' );
+        $form_fields = 'form_fields';
+        // form options
+        $form_options = get_sub_field( 'form_options' );
 
-        include locate_template( '/parts/acf/modules/content-module-six.php' );
+        include locate_template( $modules_path . 'content-module-six.php' );
 
         break;
 
