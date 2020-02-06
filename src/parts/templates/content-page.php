@@ -8,5 +8,5 @@
 ?>
 
 <div class="page-content">
-  <?php get_template_part('/parts/acf/modules'); ?>
+  <?php get_template_part( '/parts/acf/modules' ); ?>
 </div>

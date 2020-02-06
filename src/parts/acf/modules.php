@@ -14,10 +14,11 @@ if ( have_rows( $modules ) ):
         $spacer_height = get_sub_field( 'spacer_height' );
         $spacer_measurement = get_sub_field( 'spacer_measurement' );
 
-        include locate_template('/parts/acf/modules/content-spacer.php');
+        include locate_template( '/parts/acf/modules/content-spacer.php' );
 
         break;
 
+      // Title, Tagline, Content, CTA & Graphic
       case 'content_module_one' :
 
         // options
@@ -31,10 +32,11 @@ if ( have_rows( $modules ) ):
         $content = get_sub_field( 'content' );
         $call_to_action = get_sub_field( 'call_to_action' );
 
-        include locate_template('/parts/acf/modules/content-module-one.php');
+        include locate_template( '/parts/acf/modules/content-module-one.php' );
 
         break;
 
+      // Offset Content & Image Grid
       case 'content_module_two' :
 
         // options
@@ -55,10 +57,11 @@ if ( have_rows( $modules ) ):
         $br_call_to_action = $bottom_row['call_to_action'];
         $br_image = $bottom_row['image'];
 
-        include locate_template('/parts/acf/modules/content-module-two.php');
+        include locate_template( '/parts/acf/modules/content-module-two.php' );
 
         break;
 
+      // Image & Graphic
       case 'content_module_three' :
 
         // options
@@ -68,10 +71,11 @@ if ( have_rows( $modules ) ):
         // data
         $image = $bottom_row['image'];
 
-        include locate_template('/parts/acf/modules/content-module-three.php');
+        include locate_template( '/parts/acf/modules/content-module-three.php' );
 
         break;
 
+      // Two-Column Content
       case 'content_module_four' :
 
         // options
@@ -86,19 +90,21 @@ if ( have_rows( $modules ) ):
         $rc_title = $right_column['title'];
         $rc_content = $right_column['content'];
 
-        include locate_template('/parts/acf/modules/content-module-four.php');
+        include locate_template( '/parts/acf/modules/content-module-four.php' );
 
         break;
 
+      // Full-width Image
       case 'content_module_five' :
 
         // data
         $image = get_sub_field( 'image' );
 
-        include locate_template('/parts/acf/modules/content-module-five.php');
+        include locate_template( '/parts/acf/modules/content-module-five.php' );
 
         break;
 
+      // Title, Content & Contact Form
       case 'content_module_six' :
 
         // options
@@ -109,7 +115,7 @@ if ( have_rows( $modules ) ):
         $content = get_sub_field( 'content' );
         $contact_form = get_sub_field( 'contact_form' );
 
-        include locate_template('/parts/acf/modules/content-module-six.php');
+        include locate_template( '/parts/acf/modules/content-module-six.php' );
 
         break;
 

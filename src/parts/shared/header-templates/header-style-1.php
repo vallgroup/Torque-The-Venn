@@ -37,18 +37,18 @@ $extra_classes .= !get_field( 'enable_hero', get_the_ID() )
 >
 
   <?php // Notification bar
-    get_template_part( 'parts/shared/header-parts/header-notification-bar');
+    get_template_part( 'parts/shared/header-parts/header-notification-bar' );
   ?>
 
   <div class="row torque-header-content-wrapper torque-navigation-toggle">
 
     <div class="torque-header-left-area-wrapper">
       <?php // Burger Nav Toggle
-        get_template_part( 'parts/elements/element', 'burger-menu-squeeze');
+        get_template_part( 'parts/elements/element', 'burger-menu-squeeze' );
       ?>
       <?php // Quick Nav 
-        // include locate_template('/parts/shared/header-parts/header-quick-nav.php');
-        get_template_part( 'parts/shared/header-parts/header-quick-nav');
+        // include locate_template( '/parts/shared/header-parts/header-quick-nav.php' );
+        get_template_part( 'parts/shared/header-parts/header-quick-nav' );
       ?>
     </div>
 
@@ -60,10 +60,10 @@ $extra_classes .= !get_field( 'enable_hero', get_the_ID() )
 
     <div class="torque-header-right-area-wrapper">
       <?php // CTA 1 (text)
-        get_template_part( 'parts/shared/header-parts/header-cta', 'one');
+        get_template_part( 'parts/shared/header-parts/header-cta', 'one' );
       ?>
       <?php // CTA 2 (button)
-        get_template_part( 'parts/shared/header-parts/header-cta', 'two');
+        get_template_part( 'parts/shared/header-parts/header-cta', 'two' );
       ?>
     </div>
 
@@ -75,7 +75,7 @@ $extra_classes .= !get_field( 'enable_hero', get_the_ID() )
     <!-- <svg class="diagonal-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" shape-rendering="geometricPrecision">
       <polygon points="0,100 50,0 100,0 100,100"/>
     </svg> -->
-    <?php get_template_part( 'parts/shared/header-parts/menu-items/menu-items', 'stacked'); ?>
+    <?php get_template_part( 'parts/shared/header-parts/menu-items/menu-items', 'stacked' ); ?>
     <!-- <svg class="diagonal-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" shape-rendering="geometricPrecision">
       <polygon points="0,0 100,0 100,100"/>
     </svg> -->

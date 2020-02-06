@@ -17,20 +17,20 @@ $partners_logos = 'partners_logos';
 $design_logos = 'design_logos';
 $additional_logos = get_field( 'additional_logos', 'options' );
 
-$illegal_link_chars = array(' ', '.', '-', '(', ')', '<br/>', '<br>', '<br />', '<b>', '</b>', '<em>', '</em>', '<p>', '</p>', '<i>', '</i>');
+$illegal_link_chars = array( ' ', '.', '-', '( ', ' )', '<br/>', '<br>', '<br />', '<b>', '</b>', '<em>', '</em>', '<p>', '</p>', '<i>', '</i>' );
 
 ?>
 
 <footer>
 
   <div class="footer-block footer-block-one">
-    <?php get_template_part( 'parts/shared/logo', 'white'); ?>
+    <?php get_template_part( 'parts/shared/logo', 'white' ); ?>
     <?php if ( $the_venn_address ) { ?>
       <div class="location-info">
         <a 
           href="https://maps.google.com/?q=<?php echo urlencode( strip_tags( $the_venn_address ) ); ?>" 
-          target="_blank" 
-          rel="nofollow"
+          target="_blank"
+          rel="noopener noreferrer"
         ><?php echo $the_venn_address; ?></a>
       </div>
     <?php } ?>
@@ -62,7 +62,7 @@ $illegal_link_chars = array(' ', '.', '-', '(', ')', '<br/>', '<br>', '<br />', 
         <a 
           href="https://maps.google.com/?q=<?php echo urlencode( strip_tags( $leasing_office_address ) ); ?>" 
           target="_blank" 
-          rel="nofollow"
+          rel="noopener noreferrer"
         ><?php echo $leasing_office_address; ?></a>
       </div>
     <?php } ?>
@@ -70,12 +70,12 @@ $illegal_link_chars = array(' ', '.', '-', '(', ')', '<br/>', '<br>', '<br />', 
 
   <div class="footer-block footer-block-three">
     <h3 class="footer-block-title">Development</h3>
-    <?php if ( have_rows( $development_logos, 'options' ) ): ?>
+    <?php if ( have_rows( $development_logos, 'options' ) ) : ?>
       <div class="logo-wrapper development-logos">
         <? while ( have_rows( $development_logos, 'options' ) ) : the_row();
           // data
-          $logo = get_sub_field('logo');
-          $link = get_sub_field('link');
+          $logo = get_sub_field( 'logo' );
+          $link = get_sub_field( 'link' );
           if ( $link ) { ?>
             <a 
               class="quick-nav-item"
@@ -97,12 +97,12 @@ $illegal_link_chars = array(' ', '.', '-', '(', ')', '<br/>', '<br>', '<br />', 
 
     <div class="col2-desktop half-col">
       <h3 class="footer-block-title">Partners</h3>
-      <?php if ( have_rows( $partners_logos, 'options' ) ): ?>
+      <?php if ( have_rows( $partners_logos, 'options' ) ) : ?>
         <div class="logo-wrapper development-logos">
           <? while ( have_rows( $partners_logos, 'options' ) ) : the_row();
             // data
-            $logo = get_sub_field('logo');
-            $link = get_sub_field('link');
+            $logo = get_sub_field( 'logo' );
+            $link = get_sub_field( 'link' );
             if ( $link ) { ?>
               <a 
                 class="quick-nav-item"
@@ -124,12 +124,12 @@ $illegal_link_chars = array(' ', '.', '-', '(', ')', '<br/>', '<br>', '<br />', 
     </div>
     <div class="col2-desktop half-col">
       <h3 class="footer-block-title">Design</h3>
-      <?php if ( have_rows( $design_logos, 'options' ) ): ?>
+      <?php if ( have_rows( $design_logos, 'options' ) ) : ?>
         <div class="logo-wrapper development-logos">
           <? while ( have_rows( $design_logos, 'options' ) ) : the_row();
             // data
-            $logo = get_sub_field('logo');
-            $link = get_sub_field('link');
+            $logo = get_sub_field( 'logo' );
+            $link = get_sub_field( 'link' );
             if ( $link ) { ?>
               <a 
                 class="quick-nav-item"

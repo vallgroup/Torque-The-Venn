@@ -1,7 +1,7 @@
 <?php
 
 require_once( get_template_directory() . '/includes/customizer/torque-customizer-class.php' );
-//require_once( get_stylesheet_directory() . '/includes/customizer/tabs/example-tab-upate-class.php');
+//require_once( get_stylesheet_directory() . '/includes/customizer/tabs/example-tab-upate-class.php' );
 
 class The_Venn_Customizer {
 

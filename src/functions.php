@@ -1,9 +1,9 @@
 <?php
 
-require_once( get_stylesheet_directory() . '/includes/the-venn-child-nav-menus-class.php');
-require_once( get_stylesheet_directory() . '/includes/widgets/the-venn-child-widgets-class.php');
-require_once( get_stylesheet_directory() . '/includes/customizer/the-venn-child-customizer-class.php');
-require_once( get_stylesheet_directory() . '/includes/acf/the-venn-child-acf-class.php');
+require_once( get_stylesheet_directory() . '/includes/the-venn-child-nav-menus-class.php' );
+require_once( get_stylesheet_directory() . '/includes/widgets/the-venn-child-widgets-class.php' );
+require_once( get_stylesheet_directory() . '/includes/customizer/the-venn-child-customizer-class.php' );
+require_once( get_stylesheet_directory() . '/includes/acf/the-venn-child-acf-class.php' );
 
 /**
  * Child Theme Nav Menus
@@ -76,18 +76,18 @@ function torque_enqueue_child_styles() {
     wp_enqueue_style( 'the-venn-child-styles',
         get_stylesheet_directory_uri() . '/bundles/main.css',
         array( $parent_style, $parent_main_style ),
-        wp_get_theme()->get('Version')
+        wp_get_theme()->get( 'Version' )
     );
 }
 
 // enqueue child scripts after parent script
-add_action( 'wp_enqueue_scripts', 'torque_enqueue_child_scripts');
+add_action( 'wp_enqueue_scripts', 'torque_enqueue_child_scripts' );
 function torque_enqueue_child_scripts() {
 
     wp_enqueue_script( 'the-venn-child-script',
         get_stylesheet_directory_uri() . '/bundles/bundle.js',
         array( 'torque-theme-scripts' ), // depends on parent script
-        wp_get_theme()->get('Version'),
+        wp_get_theme()->get( 'Version' ),
         true       // put it in the footer
     );
 }

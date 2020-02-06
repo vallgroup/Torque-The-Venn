@@ -7,7 +7,7 @@ if ( have_rows( 'quick_nav', 'options' ) ): ?>
     <? while ( have_rows( 'quick_nav', 'options' ) ) : the_row();
       
       // get the nav item instance
-      $nav_item = get_sub_field('nav_item'); ?>
+      $nav_item = get_sub_field( 'nav_item' ); ?>
 
       <a 
         class="quick-nav-item"
