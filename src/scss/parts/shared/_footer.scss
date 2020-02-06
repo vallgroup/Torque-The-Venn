@@ -16,15 +16,13 @@ footer {
   // }
 
   .footer-block {
-    margin-bottom: 20px;
+    padding-top: $bodyPadding1;
+    padding-bottom: $bodyPadding1;
     width: 100%;
-
     text-align: center;
 
     @include respond-to(tablet) {
-      margin-bottom: 50px;
-      flex: 1 1 33%;
-
+      flex: 1 1 50%;
       text-align: left;
     }
 
@@ -33,14 +31,64 @@ footer {
     }
 
     &.footer-block-one {
-    }
-    &.footer-block-two {
-    }
-    &.footer-block-three {
+      flex: 1 1 100%;
+      text-align: center;
+
+      img {
+        max-width: 180px;
+
+        @include respond-to(tablet) {
+          max-width: 240px;
+        }
+      }
+
+      .additional-logos {
+        padding-top: 30px;
+
+        img {
+          width: 25px;
+          height: auto;
+        }
+      }
     }
     
-    .footer-block-title {
-      color: $grayMedium;
+    &.footer-block-two {
+    }
+    
+    &.footer-block-three {
+      img {
+        width: 100%;
+        height: auto;
+        max-width: 195px;
+      }
+
+      .half-col {
+        padding-top: $bodyPadding0;
+      }
+    }
+
+    .location-info {
+      padding-top: 30px;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+
+
+      @include respond-to(tablet) {
+        align-items: start;
+      }
+      @include respond-to-max(desktop) {
+        img {
+          padding: 10px 5px;
+        }  
+      }
+      @include respond-to(desktop) {
+        flex-direction: row;
+      }
     }
   }
 
