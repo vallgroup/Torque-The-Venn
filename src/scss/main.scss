@@ -9,12 +9,16 @@
 
 // mixins
 @import 'partials/mixins/header';
+@import 'partials/mixins/background-graphic';
 
 // header
 @import 'parts/shared/header-templates/header-style-1';
 
 // shared
+@import 'parts/shared/page-404';
 @import 'parts/shared/page-hero';
+@import 'parts/shared/page-content';
+@import 'parts/shared/page-content-success';
 
 // footer
 @import 'parts/shared/footer';

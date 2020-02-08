@@ -4,6 +4,6 @@
     const notificationBar = $("#top-notification-bar");
     closeBtn.click(function(){
       notificationBar.fadeOut();
-    })
+    });
   });
 })(jQuery);

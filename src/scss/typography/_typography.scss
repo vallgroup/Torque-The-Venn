@@ -21,7 +21,8 @@ input,
 select,
 optgroup,
 textarea {
-  font-family: $fontFamilyHeading;
+  font-family: $fontFamilyBody;
+  font-size: 1em;
 }
 
 h1,
@@ -37,6 +38,7 @@ h1 {
   font-size: 3.4375em; // ~55px
   font-weight: 400;
   margin-top: 0;
+  margin-bottom: 0.5em;
   color: $bluegreen;
   
   @include respond-to(tablet) {

@@ -76,11 +76,27 @@
         }
       }
       .graphic-container {
-        @extend %useBackgroundGraphic_Right;
+        @include respond-to(tablet) {
+          @include backgroundGraphic(
+            680px,
+            auto,
+            calc(100% + 300px),
+            center,
+            right
+          );
+        }
       }
       &.alternate-graphic {
         .graphic-container {
-          @extend %useBackgroundGraphic_Right_Alt;
+          @include respond-to(tablet) {
+            @include backgroundGraphic(
+              680px,
+              auto,
+              calc(100% + 300px),
+              center,
+              right_alt
+            );
+          }
         }
       }
     }
@@ -116,11 +132,27 @@
 
     &.include-graphic {
       .graphic-container {
-        @extend %useBackgroundGraphic_Left;
+        @include respond-to(tablet) {
+          @include backgroundGraphic(
+            680px,
+            auto,
+            -300px,
+            center,
+            left
+          );
+        }
       }
       &.alternate-graphic {
         .graphic-container {
-          @extend %useBackgroundGraphic_Left_Alt;
+          @include respond-to(tablet) {
+            @include backgroundGraphic(
+              680px,
+              auto,
+              -300px,
+              center,
+              left_alt
+            );
+          }
         }
       }
     }

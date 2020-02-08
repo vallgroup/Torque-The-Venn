@@ -1,0 +1,40 @@
+.content-contact-success {
+  position: relative;
+  width: 100%;
+  padding: $bodyPadding2 $bodyPadding1 $bodyPadding1;
+  box-sizing: border-box;
+  background-color: $bluegreen;
+  text-align: center;
+
+  .graphic-container {
+    @include respond-to(tablet) {
+      @include backgroundGraphic(
+        560px,
+        auto,
+        calc(100% + 200px),
+        bottom,
+        right_alt_2
+      );
+    }
+  }
+
+  h1 {
+    color: $white;
+    margin-bottom: 0;
+  }
+
+  .tagline {
+    color: $white;
+    font-size: 1.875em; // ~30px
+    margin-top: 5px;
+  }
+
+  .content {
+    color: $seafoamBlue;
+    font-size: 1.5em; // ~24px
+    padding: $bodyPadding1 0;
+    box-sizing: border-box;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+}

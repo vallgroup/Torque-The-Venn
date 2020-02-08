@@ -3,7 +3,7 @@
 $modules = 'content_modules';
 $modules_path = '/parts/acf/modules/';
 
-if ( have_rows( $modules ) ):
+if ( have_rows( $modules ) ) :
 
   while ( have_rows( $modules ) ) : the_row();
 

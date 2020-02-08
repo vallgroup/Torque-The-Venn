@@ -56,54 +56,6 @@
   background-position: center;
 }
 
-%useBackgroundGraphic_Setup {
-  z-index: -1;
-  @include respond-to(tablet) {
-    background-size: auto 100%;
-    background-position-y: 0;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 120%;
-    max-height: 560px;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-  }
-}
-%useBackgroundGraphic_Left {
-  @extend %useBackgroundGraphic_Setup;
-  
-  @include respond-to(tablet) {
-    background-image: url("../statics/images/diamond-graphic-left.png");
-    background-position-x: -30%;
-  }
-}
-%useBackgroundGraphic_Left_Alt {
-  @extend %useBackgroundGraphic_Setup;
-  
-  @include respond-to(tablet) {
-    background-image: url("../statics/images/diamond-graphic-left-alt.png");
-    background-position-x: -30%;
-  }
-}
-%useBackgroundGraphic_Right {
-  @extend %useBackgroundGraphic_Setup;
-  
-  @include respond-to(tablet) {
-    background-image: url("../statics/images/diamond-graphic-right.png");
-    background-position-x: 130%;
-  }
-}
-%useBackgroundGraphic_Right_Alt {
-  @extend %useBackgroundGraphic_Setup;
-  
-  @include respond-to(tablet) {
-    background-image: url("../statics/images/diamond-graphic-right-alt.png");
-    background-position-x: 130%;
-  }
-}
-
 %contentRightSpaceLeft {
   width: 100%;
 
@@ -159,17 +111,18 @@
 }
 
 %useButton_Setup {
-  font-size: 1.125em; // ~18px
+  font-size: 1.125em !important; // ~18px
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
   border: 1.5px solid;
   display: inline-block;
   position: relative;
-  padding: 11.5px 18px 6.5px 13px;
+  padding: 13.5px 18px 6.5px 13px;
   margin-top: 10px;
   margin-bottom: 10px;
   transition: 0.2s;
+  background-color: transparent;
 
   @include respond-to(tablet){
     font-size: 1.5em; // ~24px

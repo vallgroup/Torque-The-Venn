@@ -1,0 +1,49 @@
+/**
+ * Mixin to define background location of the backgroundImage
+ * Assumes position: relative on container,
+ * so this inner background wrapper element can work
+ * 
+ * backgroundImage options: 
+    left: 
+    right: 
+    left_alt: 
+    right_alt: 
+    right_alt_2: 
+ */
+@mixin backgroundGraphic(
+  $xBackgroundSize: 100%,
+  $yBackgroundSize: auto,
+  $xBackgroundPosition: center,
+  $yBackgroundPosition: center,
+  $backgroundImage: left
+) {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-repeat: no-repeat;
+  background-size: $xBackgroundSize $yBackgroundSize;
+  background-position: $xBackgroundPosition $yBackgroundPosition;
+
+  z-index: -1;
+  
+  // set background-image
+  @if ($backgroundImage == left) {
+    background-image: url("../statics/images/diamond-graphic-left.png");
+  }
+  @else if ( $backgroundImage == left_alt ) {
+    background-image: url("../statics/images/diamond-graphic-left-alt.png");
+  }
+  @else if ( $backgroundImage == right ) {
+    background-image: url("../statics/images/diamond-graphic-right.png");
+  }
+  @else if ( $backgroundImage == right_alt ) {
+    background-image: url("../statics/images/diamond-graphic-right-alt.png");
+  }
+  @else if ( $backgroundImage == right_alt_2 ) {
+    background-image: url("../statics/images/diamond-graphic-right-alt-2.png");
+  }
+}

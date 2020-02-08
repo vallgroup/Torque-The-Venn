@@ -5,6 +5,19 @@
   padding: $bodyPadding1;
   box-sizing: border-box;
 
+  overflow: visible;
+  
+  &:after {
+    // display: table;
+    // content: "";
+    // clear: both;
+    content: "\0020";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+
   .content-container {
     h1 {
       margin-bottom: 3vw;
@@ -12,7 +25,6 @@
     .content-tagline {
       @extend %contentTagline;
     }
-    // .content-wrapper {}
     .cta-btn {
       @extend %useButtonDark;
     }
@@ -20,13 +32,40 @@
 
   &.align-content-right {
     &.include-graphic {
+      overflow-y: visible;
+      
       .graphic-container {
-        @extend %useBackgroundGraphic_Left;
+        @include respond-to(tablet) {
+          @include backgroundGraphic(
+            340px,
+            auto,
+            -130px,
+            top,
+            left
+          );
+        }
+        @include respond-to(desktop) {
+          @include backgroundGraphic(
+            680px,
+            auto,
+            -260px,
+            top,
+            left
+          );
+        }
       }
 
       &.alternate-graphic {
         .graphic-container {
-          @extend %useBackgroundGraphic_Left_Alt;
+          @include respond-to(tablet) {
+            @include backgroundGraphic(
+              680px,
+              auto,
+              -260px,
+              top,
+              left_alt
+            );
+          }
         }
       }
     }
@@ -37,13 +76,49 @@
 
   &.align-content-left {
     &.include-graphic {
+      overflow-y: visible;
+
       .graphic-container {
-        @extend %useBackgroundGraphic_Right;
+        @include respond-to(tablet) {
+          @include backgroundGraphic(
+            350px,
+            auto,
+            calc(100% + 100px),
+            -25%,
+            right
+          );
+        }
+        @include respond-to(desktop) {
+          @include backgroundGraphic(
+            720px,
+            auto,
+            calc(100% + 260px),
+            25%,
+            right
+          );
+        }
       }
 
       &.alternate-graphic {
         .graphic-container {
-          @extend %useBackgroundGraphic_Right_Alt;
+          @include respond-to(tablet) {
+            @include backgroundGraphic(
+              350px,
+              auto,
+              calc(100% + 100px),
+              -25%,
+              right_alt
+            );
+          }
+          @include respond-to(desktop) {
+            @include backgroundGraphic(
+              720px,
+              auto,
+              calc(100% + 260px),
+              25%,
+              right_alt
+            );
+          }
         }
       }
     }

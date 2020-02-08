@@ -4,11 +4,73 @@
   padding: $bodyPadding2;
   box-sizing: border-box;
 
+  overflow-y: visible;
+  
+  &:after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+
   .content-wrapper {
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
+
+    .form-container {
+
+      .contact-form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        input:not([type="checkbox"]):not([type="radio"]),
+        select,
+        optgroup,
+        textarea {
+          border: 0;
+          border-radius: 8px;
+          background-color: $grayVeryLight;
+          padding: 12px;
+          width: 100% !important;
+          box-sizing: border-box;
+        }
+
+        .grunion-field-wrap,
+        .contact-submit {
+          flex: 1 1 100%;
+  
+          @include respond-to(tablet) {
+            &.form-field-width-25-wrap {
+              flex: 0 0 24%;
+            }
+            &.form-field-width-50-wrap {
+              flex: 0 0 49%;
+            }
+            &.form-field-width-75-wrap {
+              flex: 0 0 75%;
+            }
+          }
+        }
+
+        .contact-submit {
+          button {
+            @extend %useButtonDark;
+            // font-size: 1.5em;
+          }
+        }
+      }
+
+      &.hide-labels form.contact-form {
+        label:not(.checkbox):not(.checkbox-multiple):not(.radio)
+        {
+          display: none;
+        }
+      }
+    }
   }
 
   // Content: left
@@ -17,29 +79,32 @@
   &.alignment-style_1 {
     .content-wrapper {
 
-      @include respond-to(tablet) {
-        .content-container {
-          max-width: 80%;
-        }
-      }
-
       @include respond-to(desktop) {
         flex-direction: row;
         align-items: center;
+      }
 
-        .content-container {
+      .content-container {
+        margin-bottom: $bodyPadding0;
+
+        @include respond-to(tablet) {
+          max-width: 70%;
+        }
+        @include respond-to(desktop) {
           max-width: 100%;
           flex: 1;
           padding-right: $bodyPadding0;
         }
-        .form-container {
+      }
+      .form-container {
+        @include respond-to(desktop) {
           flex: 1;
           padding-left: $bodyPadding0;
         }
       }
 
-      .graphic-container-one,
-      .graphic-container-two {
+      .graphic-container-left,
+      .graphic-container-right {
         display: none;
       }
     }
@@ -49,14 +114,61 @@
   // Form: bottom
   // Graphic: left and right
   &.alignment-style_2 {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+
+    .graphic-container-left {
+      @include respond-to(desktop) {
+        @include backgroundGraphic(
+          680px,
+          auto,
+          -280px,
+          top,
+          left
+        );
+      }
+    }
+    .graphic-container-right {
+      @include respond-to(tablet) {
+        @include backgroundGraphic(
+          360px,
+          auto,
+          calc(100% + 125px),
+          110%,
+          right_alt
+        );
+      }
+      @include respond-to(desktop) {
+        @include backgroundGraphic(
+          560px,
+          auto,
+          calc(100% + 200px),
+          bottom,
+          right_alt
+        );
+      }
+    }
+
     .content-wrapper {
+      flex: 1 1 100%;
+
       flex-direction: column;
 
-      .graphic-container-one {
-
+      @include respond-to(desktop) {
+        flex: 0 0 50%;
+        margin-right: 15vw;
       }
-      .graphic-container-two {
-        
+
+      .content-container {
+        margin-bottom: $bodyPadding0;
+
+        @include respond-to(tablet) {
+          max-width: 70%;
+        }
+        @include respond-to(desktop) {
+          max-width: 100%;
+        }
       }
     }
   }

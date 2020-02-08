@@ -99,4 +99,32 @@ function torque_enqueue_child_scripts() {
 // add_filter( 'jetpack_development_mode', '__return_true' );
 add_filter( 'jetpack_is_staging_site', '__return_true' );
 
+/**
+ * Handle Jetpack form redirections, based on ACF fields
+ */
+add_filter( 'grunion_contact_form_redirect_url', 'modify_jetpack_contact_form_redirect', 10, 3 );
+function modify_jetpack_contact_form_redirect( $redirect, $id, $post_id ) {
+
+  // check to see whether a redirect URL was added to the form config
+  if ( 
+    isset( $_POST['custom-redirect-url'] ) &&
+    $_POST['custom-redirect-url'] !== null
+  ) {
+    // set the redirect
+    $redirects = array(
+      $id => $_POST['custom-redirect-url'],
+    );
+
+    // loop though each custom redirect
+    foreach ( $redirects as $origin => $destination ) {
+      if ( $id == $origin ) {
+        // exit;
+        return $destination;
+      }
+    }
+  }
+  // default Redirect for all the other forms
+  return $redirect;
+}
+
 ?>
