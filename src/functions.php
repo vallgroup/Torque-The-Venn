@@ -11,9 +11,9 @@ require_once( get_stylesheet_directory() . '/includes/torque-jetpack-form/torque
  * Child Theme Nav Menus
  */
 
- if ( class_exists( 'The_Venn_Nav_Menus' ) ) {
-   new The_Venn_Nav_Menus();
- }
+if ( class_exists( 'The_Venn_Nav_Menus' ) ) {
+  new The_Venn_Nav_Menus();
+}
 
 /**
  * Child Theme Widgets
@@ -35,9 +35,19 @@ if ( class_exists( 'The_Venn_Customizer' ) ) {
  * Child Theme ACF
  */
 
- if ( class_exists( 'The_Venn_ACF' ) ) {
-   new The_Venn_ACF();
- }
+if ( class_exists( 'The_Venn_ACF' ) ) {
+  new The_Venn_ACF();
+}
+
+
+/**
+ * Jetpack filters, for local/staging use
+ */
+// Hook into Jetpack's form redirect filter when WP loads, without instantiating the entire class
+Torque_Jetpack_Form::register_redirect_filter();
+
+// add_filter( 'jetpack_development_mode', '__return_true' );
+add_filter( 'jetpack_is_staging_site', '__return_true' );
 
 /**
  * Admin settings
@@ -92,41 +102,6 @@ function torque_enqueue_child_scripts() {
         wp_get_theme()->get( 'Version' ),
         true       // put it in the footer
     );
-}
-
-
-/**
- * Jetpack filters, for local/staging use
- */
-// add_filter( 'jetpack_development_mode', '__return_true' );
-add_filter( 'jetpack_is_staging_site', '__return_true' );
-
-// add_filter( 'grunion_contact_form_redirect_url', 'modify_jetpack_contact_form_redirect', 10, 3 );
-function modify_jetpack_contact_form_redirect( $redirect, $id, $post_id ) {
-  // var_dump( $_POST );
-  // exit;
-
-  // check to see whether a redirect URL was added to the form config
-  $redirect_url_post_var_name = 'g' . $id . '-' . Torque_Jetpack_Form::$REDIRECT_FIELD_LABEL;
-  if ( 
-    isset( $_POST[ $redirect_url_post_var_name ] ) &&
-    $_POST[ $redirect_url_post_var_name ] !== null
-  ) {
-    // set the redirect
-    $redirects = array(
-      $id => $_POST[ $redirect_url_post_var_name ],
-    );
-
-    // loop though each custom redirect
-    foreach ( $redirects as $origin => $destination ) {
-      if ( $id == $origin ) {
-        // exit;
-        return $destination;
-      }
-    }
-  }
-  // default Redirect for all the other forms
-  return $redirect;
 }
 
 ?>

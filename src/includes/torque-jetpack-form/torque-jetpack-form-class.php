@@ -9,16 +9,25 @@ class Torque_Jetpack_Form {
   private $form_options = null;
   private $built_form_shortcode = null;
 
+  private $allowed_args = array(
+    'email_notification_subject'  => 'to',
+    'send_notification_to'        => 'subject',
+    'submit_button_text'          => 'submit_button_text'
+  );
+
   public function __construct() {
     
     $this->form_options = get_sub_field( 'form_options' );
-    
-    add_filter( 'grunion_contact_form_redirect_url', array( $this, 'modify_jetpack_contact_form_redirect' ), 10, 3 );
 
     $this->build_form();
 
     // TODO for plugin?
     // register ACF fields
+    // add to wrapper class and call from functions.php
+  }
+
+  public static function register_redirect_filter() {
+    add_filter( 'grunion_contact_form_redirect_url', array( get_called_class(), 'modify_jetpack_contact_form_redirect' ), 10, 3 );
   }
 
   public function build_form() {
@@ -30,15 +39,13 @@ class Torque_Jetpack_Form {
     
       // start open shortcode tag
       $form_shortcode = '[contact-form';
-      $form_shortcode .= isset( $this->form_options['email_notification_subject'] ) 
-        ? ' to="' . esc_attr( $this->form_options['email_notification_subject'] ) . '"'
-        : '';
-      $form_shortcode .= isset( $this->form_options['send_notification_to'] )
-        ? ' subject="' . esc_attr( $this->form_options['send_notification_to'] ) . '"'
-        : '';
-      $form_shortcode .= isset( $this->form_options['submit_button_text'] )
-        ? ' submit_button_text="' . esc_attr( $this->form_options['submit_button_text'] ) . '"'
-        : '';
+
+      foreach( $this->allowed_args as $key => $value ) {
+        if ( isset( $this->form_options[ $key ] ) ) {
+          $form_shortcode .= ' ' . $value . '="' . esc_attr( $this->form_options[ $key ] ) . '"';
+        }
+      }
+      
       // end open shortcode tag
       $form_shortcode .= ']';
       
@@ -98,10 +105,10 @@ class Torque_Jetpack_Form {
 
   // TODO: This doesn't appear to be reachable when called from this class
   // IS currently located in functions.php as well....
-  public function modify_jetpack_contact_form_redirect( $redirect, $id, $post_id ) {
+  public static function modify_jetpack_contact_form_redirect( $redirect, $id, $post_id ) {
     
-    var_dump( $_POST );
-    exit;
+    // var_dump( $_POST );
+    // exit;
 
     // check to see whether a redirect URL was added to the form config
     $redirect_url_post_var_name = 'g' . $id . '-' . self::$REDIRECT_FIELD_LABEL;
