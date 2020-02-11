@@ -114,9 +114,6 @@ if ( have_rows( $modules ) ) :
         // data
         $title = strip_tags( get_sub_field( 'title' ), '<i><b><em><strong>' );
         $content = strip_tags( get_sub_field( 'content'), '<i><b><em><strong><p><br>' );
-        $form_fields = 'form_fields';
-        // form options
-        $form_options = get_sub_field( 'form_options' );
 
         include locate_template( $modules_path . 'content-module-six.php' );
 
