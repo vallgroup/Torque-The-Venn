@@ -4,6 +4,8 @@ require_once( get_stylesheet_directory() . '/includes/the-venn-child-nav-menus-c
 require_once( get_stylesheet_directory() . '/includes/widgets/the-venn-child-widgets-class.php' );
 require_once( get_stylesheet_directory() . '/includes/customizer/the-venn-child-customizer-class.php' );
 require_once( get_stylesheet_directory() . '/includes/acf/the-venn-child-acf-class.php' );
+require_once( get_stylesheet_directory() . '/includes/torque-jetpack-form/torque-jetpack-form-class.php' );
+require_once( get_stylesheet_directory() . '/includes/torque-jetpack-form/torque-jetpack-form-fields-class.php' );
 
 /**
  * Child Theme Nav Menus
@@ -99,20 +101,20 @@ function torque_enqueue_child_scripts() {
 // add_filter( 'jetpack_development_mode', '__return_true' );
 add_filter( 'jetpack_is_staging_site', '__return_true' );
 
-/**
- * Handle Jetpack form redirections, based on ACF fields
- */
-add_filter( 'grunion_contact_form_redirect_url', 'modify_jetpack_contact_form_redirect', 10, 3 );
+// add_filter( 'grunion_contact_form_redirect_url', 'modify_jetpack_contact_form_redirect', 10, 3 );
 function modify_jetpack_contact_form_redirect( $redirect, $id, $post_id ) {
+  // var_dump( $_POST );
+  // exit;
 
   // check to see whether a redirect URL was added to the form config
+  $redirect_url_post_var_name = 'g' . $id . '-' . Torque_Jetpack_Form::$REDIRECT_FIELD_LABEL;
   if ( 
-    isset( $_POST['custom-redirect-url'] ) &&
-    $_POST['custom-redirect-url'] !== null
+    isset( $_POST[ $redirect_url_post_var_name ] ) &&
+    $_POST[ $redirect_url_post_var_name ] !== null
   ) {
     // set the redirect
     $redirects = array(
-      $id => $_POST['custom-redirect-url'],
+      $id => $_POST[ $redirect_url_post_var_name ],
     );
 
     // loop though each custom redirect
