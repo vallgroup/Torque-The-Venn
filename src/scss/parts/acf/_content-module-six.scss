@@ -1,10 +1,9 @@
 .content-module-six-container {
   position: relative;
   width: 100%;
+
   padding: $bodyPadding2;
   box-sizing: border-box;
-
-  overflow-y: visible;
   
   &:after {
     display: table;
@@ -62,6 +61,10 @@
             // font-size: 1.5em;
           }
         }
+
+        .hidden-input-field-wrap {
+          display: none;
+        }
       }
 
       &.hide-labels form.contact-form {
@@ -78,12 +81,14 @@
   // Graphic: none
   &.alignment-style_1 {
     .content-wrapper {
-
       @include respond-to(desktop) {
         flex-direction: row;
         align-items: center;
       }
 
+      .background-graphic-container {
+        display: none;
+      }
       .content-container {
         margin-bottom: $bodyPadding0;
 
@@ -102,11 +107,6 @@
           padding-left: $bodyPadding0;
         }
       }
-
-      .graphic-container-left,
-      .graphic-container-right {
-        display: none;
-      }
     }
   }
 
@@ -118,38 +118,33 @@
     justify-content: flex-end;
     flex-direction: row;
 
-    .graphic-container-left {
-      @include respond-to(desktop) {
-        @include backgroundGraphic(
-          680px,
-          auto,
-          -280px,
-          top,
-          left
-        );
+    .background-graphic-container {
+      @extend %useBackgroundGraphicContainer;
+      
+      &.align-left {
+        img {
+          position: absolute;
+          left: 0;
+          transform: translateX(-48%) translateY(-5%);
+          top: 0;
+          z-index: -1;
+          max-height: 700px;
+        }
+        @include respond-to-max(desktop) {
+          display: none;
+        }
+      }
+      &.align-right {
+        img {
+          position: absolute;
+          right: 0;
+          transform: translateX(35%) translateY(110%);
+          top: 0;
+          z-index: -1;
+          max-height: 480px;
+        }
       }
     }
-    .graphic-container-right {
-      @include respond-to(tablet) {
-        @include backgroundGraphic(
-          360px,
-          auto,
-          calc(100% + 125px),
-          110%,
-          right_alt
-        );
-      }
-      @include respond-to(desktop) {
-        @include backgroundGraphic(
-          560px,
-          auto,
-          calc(100% + 200px),
-          bottom,
-          right_alt
-        );
-      }
-    }
-
     .content-wrapper {
       flex: 1 1 100%;
 

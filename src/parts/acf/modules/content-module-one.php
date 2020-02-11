@@ -5,16 +5,15 @@
 
 // options
 $content_align_class = 'align-content-' . $align_text;
-$include_graphic_class = $include_graphic ? 'include-graphic' : '';
-$alternate_graphic_class = $alternate_graphic ? 'alternate-graphic' : '';
 ?>
 
 <div class="content-module-one-container
   <?php echo $content_align_class; ?>
-  <?php echo $include_graphic_class; ?>
-  <?php echo $alternate_graphic_class; ?>
 ">
-  <div class="graphic-container"></div>
+  <?php // background graphic template part
+    $align_graphic = $align_text === 'left' ? 'right' : 'left';
+    include locate_template( '/parts/shared/background-graphic.php' ); 
+  ?>
   <div class="content-container">
     <?php if ( $title ) { ?>
       <h1><?php echo $title; ?></h1>

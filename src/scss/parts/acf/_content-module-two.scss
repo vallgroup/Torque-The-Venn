@@ -2,6 +2,15 @@
   position: relative;
   width: 100%;
 
+  .background-graphic-container {
+    display: none;
+    @extend %useBackgroundGraphicContainer;
+
+    @include respond-to(tablet) {
+      display: block;
+    }
+  }
+
   .top-row-container,
   .bottom-row-container {
     display: flex;
@@ -45,7 +54,15 @@
   // Bottom Row: text right, image left
   // Graphic: right
   &.alignment-style_1 {
-
+    .background-graphic-container {
+      img {
+        position: absolute;
+        right: 0;
+        transform: translateX(35%) translateY(65%);
+        top: 0;
+        z-index: -1;
+      }
+    }
     .top-row-container {
       flex-direction: row;
       align-items: center;
@@ -66,38 +83,6 @@
       }
       .image-container {
         flex: 1;
-      }
-    }
-
-    &.include-graphic {
-      .bottom-row-container {
-        .content-container {
-          padding-top: $bodyPadding1;
-        }
-      }
-      .graphic-container {
-        @include respond-to(tablet) {
-          @include backgroundGraphic(
-            680px,
-            auto,
-            calc(100% + 300px),
-            center,
-            right
-          );
-        }
-      }
-      &.alternate-graphic {
-        .graphic-container {
-          @include respond-to(tablet) {
-            @include backgroundGraphic(
-              680px,
-              auto,
-              calc(100% + 300px),
-              center,
-              right_alt
-            );
-          }
-        }
       }
     }
   }
@@ -106,7 +91,15 @@
   // Bottom Row: text left, image right
   // Graphic: left
   &.alignment-style_2 {
-
+    .background-graphic-container {
+      img {
+        position: absolute;
+        left: 0;
+        transform: translateX(-35%) translateY(-65%);
+        top: 0;
+        z-index: -1;
+      }
+    }
     .top-row-container {
       flex-direction: row-reverse;
       align-items: center;
@@ -129,33 +122,5 @@
         flex: 1;
       }
     }
-
-    &.include-graphic {
-      .graphic-container {
-        @include respond-to(tablet) {
-          @include backgroundGraphic(
-            680px,
-            auto,
-            -300px,
-            center,
-            left
-          );
-        }
-      }
-      &.alternate-graphic {
-        .graphic-container {
-          @include respond-to(tablet) {
-            @include backgroundGraphic(
-              680px,
-              auto,
-              -300px,
-              center,
-              left_alt
-            );
-          }
-        }
-      }
-    }
-
   }
 }

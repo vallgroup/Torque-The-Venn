@@ -5,17 +5,12 @@
   padding: $bodyPadding1;
   box-sizing: border-box;
 
-  overflow: visible;
-  
-  &:after {
-    // display: table;
-    // content: "";
-    // clear: both;
-    content: "\0020";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
+  .background-graphic-container {
+    display: none;
+
+    @include respond-to(tablet) {
+      display: block;
+    }
   }
 
   .content-container {
@@ -30,43 +25,19 @@
     }
   }
 
+  // Content: right
+  // Graphic: left
   &.align-content-right {
-    &.include-graphic {
-      overflow-y: visible;
+    .background-graphic-container {
+      @extend %useBackgroundGraphicContainer;
       
-      .graphic-container {
-        @include respond-to(tablet) {
-          @include backgroundGraphic(
-            340px,
-            auto,
-            -130px,
-            top,
-            left
-          );
-        }
-        @include respond-to(desktop) {
-          @include backgroundGraphic(
-            680px,
-            auto,
-            -260px,
-            top,
-            left
-          );
-        }
-      }
-
-      &.alternate-graphic {
-        .graphic-container {
-          @include respond-to(tablet) {
-            @include backgroundGraphic(
-              680px,
-              auto,
-              -260px,
-              top,
-              left_alt
-            );
-          }
-        }
+      img {
+        position: absolute;
+        left: 0;
+        transform: translateX(-35%) translateY(-18%);
+        top: 0;
+        z-index: -1;
+        max-height: 670px;
       }
     }
     .content-container {
@@ -74,52 +45,19 @@
     }
   }
 
+  // Content: left
+  // Graphic: right
   &.align-content-left {
-    &.include-graphic {
-      overflow-y: visible;
-
-      .graphic-container {
-        @include respond-to(tablet) {
-          @include backgroundGraphic(
-            350px,
-            auto,
-            calc(100% + 100px),
-            -25%,
-            right
-          );
-        }
-        @include respond-to(desktop) {
-          @include backgroundGraphic(
-            720px,
-            auto,
-            calc(100% + 260px),
-            25%,
-            right
-          );
-        }
-      }
-
-      &.alternate-graphic {
-        .graphic-container {
-          @include respond-to(tablet) {
-            @include backgroundGraphic(
-              350px,
-              auto,
-              calc(100% + 100px),
-              -25%,
-              right_alt
-            );
-          }
-          @include respond-to(desktop) {
-            @include backgroundGraphic(
-              720px,
-              auto,
-              calc(100% + 260px),
-              25%,
-              right_alt
-            );
-          }
-        }
+    .background-graphic-container {
+      @extend %useBackgroundGraphicContainer;
+      
+      img {
+        position: absolute;
+        right: 0;
+        transform: translateX(35%) translateY(-18%);
+        top: 0;
+        z-index: -1;
+        max-height: 670px;
       }
     }
     .content-container {
