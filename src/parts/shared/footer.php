@@ -5,19 +5,22 @@
 
 // Locations
 $location_the_venn = get_field( 'the_venn', 'options' );
-$the_venn_address = $location_the_venn['address'];
+$the_venn_address = isset( $location_the_venn['address'] ) 
+  ? strip_tags( $location_the_venn['address'], '<br>, <p>' ) 
+  : null;
 $location_leasing_office = get_field( 'leasing_office', 'options' );
-$leasing_office_phone = $location_leasing_office['phone'];
-$leasing_office_email = $location_leasing_office['email'];
-$leasing_office_address = $location_leasing_office['address'];
-
-// Logos
-$development_logos = 'development_logos';
-$partners_logos = 'partners_logos';
-$design_logos = 'design_logos';
+$leasing_office_phone = isset( $location_leasing_office['phone'] ) 
+? strip_tags( $location_leasing_office['phone'] ) 
+: null;
+$leasing_office_email = isset( $location_leasing_office['email'] ) 
+? strip_tags( $location_leasing_office['email'] ) 
+: null;
+$leasing_office_address = isset( $location_leasing_office['address'] ) 
+? strip_tags( $location_leasing_office['address'], '<br>, <p>' ) 
+: null;
 $additional_logos = get_field( 'additional_logos', 'options' );
 
-$illegal_link_chars = array( ' ', '.', '-', '( ', ' )', '<br/>', '<br>', '<br />', '<b>', '</b>', '<em>', '</em>', '<p>', '</p>', '<i>', '</i>' );
+$illegal_link_chars = array( ' ', '.', '-', '( ', ' )' );
 
 ?>
 
@@ -35,13 +38,15 @@ $illegal_link_chars = array( ' ', '.', '-', '( ', ' )', '<br/>', '<br>', '<br />
       </div>
     <?php } ?>
     <div class="additional-logos">
-      <?php foreach( $additional_logos as $logo ) { ?>
-        <img 
-          src="<?php echo $logo['url']; ?>" 
-          title="<?php echo $logo['title']; ?>"
-          alt="<?php echo $logo['alt']; ?>"
-        />
-      <?php } ?>
+      <?php if ( !empty( $additional_logos ) ) {
+        foreach( $additional_logos as $logo ) { ?>
+          <img 
+            src="<?php echo $logo['url']; ?>" 
+            title="<?php echo $logo['title']; ?>"
+            alt="<?php echo $logo['alt']; ?>"
+          />
+        <?php } 
+        } ?>
     </div>
   </div>
 
@@ -49,7 +54,7 @@ $illegal_link_chars = array( ' ', '.', '-', '( ', ' )', '<br/>', '<br>', '<br />
     <h3 class="footer-block-title">Leasing Office</h3>
     <?php if ( $leasing_office_phone ) { ?>
       <div class="location-info">
-        <a href="tel:<?php echo str_replace( $illegal_link_chars, '', $leasing_office_phone ); ?>"><?php echo $leasing_office_phone; ?></a>
+        <a href="tel:<?php echo strip_tags( str_replace( $illegal_link_chars, '', $leasing_office_phone ) ); ?>"><?php echo $leasing_office_phone; ?></a>
       </div>
     <?php } ?>
     <?php if ( $leasing_office_email ) { ?>
@@ -70,9 +75,9 @@ $illegal_link_chars = array( ' ', '.', '-', '( ', ' )', '<br/>', '<br>', '<br />
 
   <div class="footer-block footer-block-three">
     <h3 class="footer-block-title">Development</h3>
-    <?php if ( have_rows( $development_logos, 'options' ) ) : ?>
+    <?php if ( have_rows( 'development_logos', 'options' ) ) : ?>
       <div class="logo-wrapper development-logos">
-        <? while ( have_rows( $development_logos, 'options' ) ) : the_row();
+        <? while ( have_rows( 'development_logos', 'options' ) ) : the_row();
           // data
           $logo = get_sub_field( 'logo' );
           $link = get_sub_field( 'link' );
@@ -97,9 +102,9 @@ $illegal_link_chars = array( ' ', '.', '-', '( ', ' )', '<br/>', '<br>', '<br />
 
     <div class="col2-desktop half-col">
       <h3 class="footer-block-title">Partners</h3>
-      <?php if ( have_rows( $partners_logos, 'options' ) ) : ?>
+      <?php if ( have_rows( 'partners_logos', 'options' ) ) : ?>
         <div class="logo-wrapper development-logos">
-          <? while ( have_rows( $partners_logos, 'options' ) ) : the_row();
+          <? while ( have_rows( 'partners_logos', 'options' ) ) : the_row();
             // data
             $logo = get_sub_field( 'logo' );
             $link = get_sub_field( 'link' );
@@ -124,9 +129,9 @@ $illegal_link_chars = array( ' ', '.', '-', '( ', ' )', '<br/>', '<br>', '<br />
     </div>
     <div class="col2-desktop half-col">
       <h3 class="footer-block-title">Design</h3>
-      <?php if ( have_rows( $design_logos, 'options' ) ) : ?>
+      <?php if ( have_rows( 'design_logos', 'options' ) ) : ?>
         <div class="logo-wrapper development-logos">
-          <? while ( have_rows( $design_logos, 'options' ) ) : the_row();
+          <? while ( have_rows( 'design_logos', 'options' ) ) : the_row();
             // data
             $logo = get_sub_field( 'logo' );
             $link = get_sub_field( 'link' );
