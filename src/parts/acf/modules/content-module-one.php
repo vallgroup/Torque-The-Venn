@@ -1,6 +1,7 @@
 <?php
 /**
  * Template file for displaying Content Module One
+ * Title, Tagline, Content, CTA & Graphic
  */
 
 // options

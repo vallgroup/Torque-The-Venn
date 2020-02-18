@@ -1,6 +1,7 @@
 <?php
 /**
  * Template file for displaying Content Module Four
+ * Two-Column Content
  */
 
 // options

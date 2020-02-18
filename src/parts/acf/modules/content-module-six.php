@@ -1,6 +1,7 @@
 <?php
 /**
  * Template file for displaying Content Module Six
+ * Title, Content & Contact Form
  */
 
 // options

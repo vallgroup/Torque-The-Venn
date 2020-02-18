@@ -14,12 +14,10 @@
   .top-row-container,
   .bottom-row-container {
     display: flex;
-    @include respond-to(tablet) {
-    }
 
     .content-container {
       box-sizing: border-box;
-      padding: $bodyPadding1 $bodyPadding0;
+      padding: $bodyPadding1 $bodyPadding1;
 
       @include respond-to(tablet) {
         padding: $bodyPadding2 $bodyPadding1;
@@ -58,14 +56,23 @@
       img {
         position: absolute;
         right: 0;
-        transform: translateX(35%) translateY(65%);
+        transform: translateX(35%) translateY(80%);
         top: 0;
         z-index: -1;
+        max-height: 350px;
+
+        @include respond-to(desktop) {
+          max-height: 550px;
+        }
       }
     }
     .top-row-container {
-      flex-direction: row;
+      flex-direction: column-reverse; // image top, content bottom
       align-items: center;
+
+      @include respond-to(tablet) {
+        flex-direction: row;
+      }
 
       .content-container {
         flex: 1;
@@ -75,8 +82,12 @@
       }
     }
     .bottom-row-container {
-      flex-direction: row-reverse;
+      flex-direction: column-reverse; // image top, content bottom
       align-items: center;
+
+      @include respond-to(tablet) {
+        flex-direction: row-reverse;
+      }
 
       .content-container {
         flex: 1;
@@ -95,9 +106,14 @@
       img {
         position: absolute;
         left: 0;
-        transform: translateX(-35%) translateY(-65%);
+        transform: translateX(-35%) translateY(80%);
         top: 0;
         z-index: -1;
+        max-height: 350px;
+
+        @include respond-to(desktop) {
+          max-height: 550px;
+        }
       }
     }
     .top-row-container {

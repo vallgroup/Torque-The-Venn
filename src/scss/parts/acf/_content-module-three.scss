@@ -1,4 +1,71 @@
 .content-module-three-container {
   position: relative;
   width: 100%;
+
+  &.alignment-left {
+
+    .image-container {
+      flex-direction: row;
+    }
+
+    .background-graphic-container {
+      img {
+        right: 0;
+        transform: translateX(35%) translateY(0);
+      }
+    }
+  }
+
+  &.alignment-right {
+
+    .image-container {
+      flex-direction: row-reverse;
+    }
+
+    .background-graphic-container {
+      img {
+        left: 0;
+        transform: translateX(-35%) translateY(0);
+      }
+    }
+
+  }
+
+  .image-container {
+    display: flex;
+    width: 100%;
+
+    .image-wrapper {
+      flex: 1;
+
+      @include respond-to(tablet) {
+        flex: 0 0 45%;
+      }
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .background-graphic-container {
+    display: none;
+    @extend %useBackgroundGraphicContainer;
+    overflow: visible;
+
+    @include respond-to(tablet) {
+      display: block;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      max-height: 450px;
+
+      @include respond-to(desktop) {
+        max-height: 500px;
+      }
+    }
+  }
 }

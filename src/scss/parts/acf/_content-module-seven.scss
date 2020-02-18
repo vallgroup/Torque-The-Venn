@@ -1,0 +1,103 @@
+.content-module-seven-container {
+  position: relative;
+  width: 100%;
+
+  .content-wrapper {
+    // used CSS grid fro equal height cols
+    display: grid;
+    grid-template-columns: 100%;
+
+    background-image: url("../statics/images/diamond-graphic-background.png");
+
+    .content-container {
+      grid-column: 1;
+      grid-row: 2;
+      width: 100%;
+      box-sizing: border-box;
+      padding: $bodyPadding1 $bodyPadding2;
+      background-image: linear-gradient(45deg, $seafoamBlue 0%, $mediumGreen 90%);
+
+      h1 {
+        color: $white;
+        float: left;
+        width: 100%;
+      }
+
+      .cta-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        float: left;
+        width: 100%;
+
+        .button-container {
+          .cta {
+            @extend %useButtonLight;
+          }
+        }
+  
+        .button-container,
+        .phone-container {
+          float: left;
+          width: 50%;
+          color: $white;
+        }
+      }
+
+    }
+  
+    .image-wrapper {
+      grid-column: 1;
+      grid-row: 1;
+      width: 100%;
+      height: 100%;
+      min-height: 350px;
+
+      .image-container {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+  }
+
+  // Image: left
+  // Content: right
+  &.alignment-left {
+    @include respond-to(desktop) {
+      .content-wrapper {
+        grid-template-columns: 40% 60%;
+
+        .image-wrapper {
+          grid-column: 1;
+          grid-row: 1;
+        }
+        .content-container {
+          grid-column: 2;
+          grid-row: 1;
+        }
+      }
+    }
+  }
+
+  // Content: left
+  // Image: right
+  &.alignment-right {
+    @include respond-to(desktop) {
+      .content-wrapper {
+        grid-template-columns: 60% 40%;
+
+        .image-wrapper {
+          grid-column: 2;
+          grid-row: 1;
+        }
+        .content-container {
+          grid-column: 1;
+          grid-row: 1;
+        }
+      }
+    }
+  }
+}

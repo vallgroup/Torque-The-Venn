@@ -1,6 +1,7 @@
 <?php
 /**
  * Template file for displaying Content Module Two
+ * Offset Content & Image Grid
  */
 
 // options
@@ -13,6 +14,7 @@ $alignment_style_class = 'alignment-' . $alignment_style;
 ">
   <?php // background graphic template part
     $align_graphic = $alignment_style === 'style_1' ? 'right' : 'left';
+    $alternate_graphic = true;
     include locate_template( '/parts/shared/background-graphic.php' ); 
   ?>
   <div class="top-row-container">

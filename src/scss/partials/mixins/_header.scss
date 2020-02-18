@@ -1,47 +1,69 @@
 // Pass true or false for $removeHeaderHeight to remove or add height
-@mixin useHeaderHeight($property, $removeHeaderHeight) {
+@mixin useHeaderHeight($property, $removeHeaderHeight, $isFixed: false) {
+
+  // add header height, and not fixed
+  $mobileHeight: 95px;
+  $tabletHeight: 100px;
+  $desktopHeight: 180px;
+
+  // otherwise...
   @if $removeHeaderHeight == true {
-    #{$property}: -95px;
-
-    @include respond-to(tablet) {
-      #{$property}: -100px;
+    @if $isFixed == true {
+      $mobileHeight: -75px;
+      $tabletHeight: -75px;
+      $desktopHeight: -150px;
     }
-
-    @include respond-to(desktop) {
-      #{$property}: -180px;
+    @else {
+      $mobileHeight: -95px;
+      $tabletHeight: -100px;
+      $desktopHeight: -180px;
     }
   }
   @else {
-    #{$property}: 95px;
-
-    @include respond-to(tablet) {
-      #{$property}: 100px;
+    @if $isFixed == true {
+      $mobileHeight: 75px;
+      $tabletHeight: 75px;
+      $desktopHeight: 150px;
     }
+  }
 
-    @include respond-to(desktop) {
-      #{$property}: 180px;
-    }
+  #{$property}: $mobileHeight;
+
+  @include respond-to(tablet) {
+    #{$property}: $tabletHeight;
+  }
+
+  @include respond-to(desktop) {
+    #{$property}: $desktopHeight;
   }
 }
 
-@mixin useHeaderPadding() {
+@mixin useHeaderPadding($isFixed: false) {
+  $mobilePadding: 5px;
+  // $tabletPadding: 10px;
+  $desktopPadding: 30px;
+
+  @if $isFixed == true {
+    $desktopPadding: 15px;
+  }
+
   box-sizing: border-box;
   padding: {
-    top: 5px;
-    bottom: 5px;
+    top: $mobilePadding;
+    bottom: $mobilePadding;
   }
 
   // @include respond-to(tablet) {
   //   padding: {
-  //     top: 10px;
-  //     bottom: 10px;
+  //     top: $tabletPadding;
+  //     bottom: $tabletPadding;
   //   }
   // }
 
   @include respond-to(desktop) {
     padding: {
-      top: 30px;
-      bottom: 30px;
+      top: $desktopPadding;
+      bottom: $desktopPadding;
     }
   }
 }

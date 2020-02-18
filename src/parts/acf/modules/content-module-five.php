@@ -1,6 +1,7 @@
 <?php
 /**
  * Template file for displaying Content Module Five
+ * Full-width Image
  */
 
 if ( !empty( $image ) ) { ?>

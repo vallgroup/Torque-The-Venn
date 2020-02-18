@@ -14,6 +14,7 @@ if ( have_rows( $modules ) ) :
         // options
         $spacer_height = get_sub_field( 'spacer_height' );
         $spacer_measurement = get_sub_field( 'spacer_measurement' );
+        $visibility = get_sub_field( 'visibility' );
 
         include locate_template( $modules_path . 'content-spacer.php' );
 
@@ -69,6 +70,7 @@ if ( have_rows( $modules ) ) :
         $options = get_sub_field( 'options' );
         $align_image = $options['align_image'];
         $include_graphic = $options['include_graphic'];
+        $alternate_graphic = $options['alternate_graphic'];
         // data
         $image = get_sub_field( 'image' );
 
@@ -116,6 +118,22 @@ if ( have_rows( $modules ) ) :
         $content = strip_tags( get_sub_field( 'content'), '<i><b><em><strong><p><br>' );
 
         include locate_template( $modules_path . 'content-module-six.php' );
+
+        break;
+
+      // CTA Banner
+      case 'content_module_seven' :
+
+        // options
+        $options = get_sub_field( 'options' );
+        $align_image = $options['align_image'];
+        // data
+        $image = get_sub_field( 'image' );
+        $title = strip_tags( get_sub_field( 'title' ), '<i><b><em><strong>' );
+        $button = get_sub_field( 'button' );
+        $phone = strip_tags( get_sub_field( 'phone') );
+
+        include locate_template( $modules_path . 'content-module-seven.php' );
 
         break;
 
