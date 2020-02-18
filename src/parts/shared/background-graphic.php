@@ -1,11 +1,16 @@
 <?php
 /**
  * Template for displaying background graphic.
- * Expects;
+ * Expects the following to be set;
  *  $include_graphic
  *  $align_graphic
  *  $alternate_graphic
  */
+
+// set defaults...
+$include_graphic    = isset( $include_graphic )   ? $include_graphic    : true;
+$align_graphic      = isset( $align_graphic )     ? $align_graphic      : 'left';
+$alternate_graphic  = isset( $alternate_graphic ) ? $alternate_graphic  : false;
 
 if ( $include_graphic ) : 
 
