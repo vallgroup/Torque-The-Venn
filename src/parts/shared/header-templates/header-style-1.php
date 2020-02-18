@@ -72,13 +72,17 @@ $extra_classes .= !get_field( 'enable_hero', get_the_ID() )
   <!-- Burger Nav Items -->
 
   <div class="col1 torque-navigation-toggle torque-header-menu-items-mobile">
-    <!-- <svg class="diagonal-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" shape-rendering="geometricPrecision">
-      <polygon points="0,100 50,0 100,0 100,100"/>
-    </svg> -->
+    <svg class="svg-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 1080" preserveAspectRatio="none" shape-rendering="geometricPrecision">
+      <polygon points="0,0 250,0 630,420 50,1080 0,1080"></polygon>
+      <defs>
+        <linearGradient id="grad" gradientTransform="rotate(119)">
+          <stop offset="-24%" stop-color="#63be73"/>
+          <stop offset="23%" stop-color="#6ec5a2"/>
+          <stop offset="59%" stop-color="#9ccfc8"/>
+        </linearGradient>
+      </defs>
+    </svg>
     <?php get_template_part( 'parts/shared/header-parts/menu-items/menu-items', 'stacked' ); ?>
-    <!-- <svg class="diagonal-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" shape-rendering="geometricPrecision">
-      <polygon points="0,0 100,0 100,100"/>
-    </svg> -->
   </div>
 
 </header>
