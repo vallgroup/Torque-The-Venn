@@ -2,6 +2,7 @@
   $(document).ready(() => {
     const bodyContainer = $("body");
     const headerContainer = $("header");
+    const mainContainer = $("main");
     const headerContent = $("header .torque-header-content-wrapper");
     const outsideHeaderBar = $(".torque-header-logo-wrapper, main, footer");
     const headerBurgerMenu = $("header .torque-burger-menu");
@@ -65,12 +66,21 @@
     }
 
     function checkUserScroll() {
-      if ($(this).scrollTop() >= 5) {
-        headerContainer.addClass(bodyScrolledClass);
-        headerContainer.addClass(headerFixedClass);
+      // set header height here, because we compress the height when fixed/scrolled
+      const headerHeight = headerContainer.outerHeight();
+      
+      if ($(this).scrollTop() >= headerHeight) {
+        // add body classes
+        bodyContainer.addClass(bodyScrolledClass);
+        bodyContainer.addClass(headerFixedClass);
+        // add main padding
+        mainContainer.css('margin-top', headerHeight);
       } else {
-        headerContainer.removeClass(bodyScrolledClass);
-        headerContainer.removeClass(headerFixedClass);
+        // remove body classes
+        bodyContainer.removeClass(bodyScrolledClass);
+        bodyContainer.removeClass(headerFixedClass);
+        // remove main padding
+        mainContainer.css('margin-top', 0);
       }
     }
   });
