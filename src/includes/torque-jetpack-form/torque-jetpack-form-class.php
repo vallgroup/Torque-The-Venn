@@ -78,9 +78,10 @@ class Torque_Jetpack_Form {
   public function print_form() {
     
     // build extra css classess
-    $extra_form_classes = isset( $this->form_options['hide_labels'] )
-    ? ' hide-labels'
-    : '';
+    $extra_form_classes = isset( $this->form_options['hide_labels'] ) 
+      && $this->form_options['hide_labels']
+        ? ' hide-labels'
+        : '';
 
     // echo form to page
     echo '<div class="form-container' . $extra_form_classes . '">';
