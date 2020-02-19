@@ -139,4 +139,34 @@
       }
     }
   }
+
+  // Hide top/bottom rows is class included
+  &.hide_tr {
+    .top-row-container {
+      display: none;
+    }
+  }
+  &.hide_br {
+    .bottom-row-container {
+      display: none;
+    }
+  }
+  // If hiding the top/bottom rows, adjust the Y-axis alignment of the background to be centred
+  &.hide_tr,
+  &.hide_br {
+    &.alignment-style_1 {
+      .background-graphic-container {
+        img {
+          transform: translateX(35%) translateY(10%);
+        }
+      }
+    }
+    &.alignment-style_2 {
+      .background-graphic-container {
+        img {
+          transform: translateX(-35%) translateY(10%);
+        }
+      }
+    }
+  }
 }

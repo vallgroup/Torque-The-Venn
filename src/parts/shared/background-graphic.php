@@ -8,9 +8,10 @@
  */
 
 // set defaults...
-$include_graphic    = isset( $include_graphic )   ? $include_graphic    : true;
-$align_graphic      = isset( $align_graphic )     ? $align_graphic      : 'left';
-$alternate_graphic  = isset( $alternate_graphic ) ? $alternate_graphic  : false;
+$include_graphic          = isset( $include_graphic )           ? $include_graphic          : true;
+$align_graphic            = isset( $align_graphic )             ? $align_graphic            : 'left';
+$alternate_graphic        = isset( $alternate_graphic )         ? $alternate_graphic        : false;
+$alternate_graphic_number = isset( $alternate_graphic_number )  ? $alternate_graphic_number : null;
 
 if ( $include_graphic ) : 
 
@@ -20,6 +21,8 @@ if ( $include_graphic ) :
   $image_path .= $align_graphic === 'right' ? 'right' : 'left';
   // image type
   $image_path .= $alternate_graphic ? '-alt' : '';
+  // image number
+  $image_path .= $alternate_graphic_number ? '-' . $alternate_graphic_number : '';
   // file type
   $image_path .= '.png';
 

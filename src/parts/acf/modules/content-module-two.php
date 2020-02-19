@@ -11,10 +11,15 @@ $alignment_style_class = 'alignment-' . $alignment_style;
 
 <div class="content-module-two-container
   <?php echo $alignment_style_class; ?>
+  <?php echo $hide_tr; ?>
+  <?php echo $hide_br; ?>
 ">
   <?php // background graphic template part
     $align_graphic = $alignment_style === 'style_1' ? 'right' : 'left';
-    $alternate_graphic = true;
+    if ( $align_graphic === 'right' ) {
+      // use a special graphic for right-aligned alt graphic, for this module...
+      $alternate_graphic_number = 1;
+    }
     include locate_template( '/parts/shared/background-graphic.php' ); 
   ?>
   <div class="top-row-container">

@@ -167,4 +167,86 @@
       }
     }
   }
+
+  // Content: top, left
+  // Form: bottom, left
+  // Graphic: top, right
+  // Contact Details: bottom, right
+  &.alignment-style_3 {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    .background-graphic-container {
+      @extend %useBackgroundGraphicContainer;
+
+      &.align-right {
+        img {
+          position: absolute;
+          right: 0;
+          top: 0;
+          z-index: -1;
+          max-height: 350px;
+          transform: translateX(42%) translateY(-15%);
+
+          @include respond-to-max(tablet) {
+            display: none;
+          }
+
+          @include respond-to(desktop) {
+            max-height: 600px;
+          }
+          
+        }
+      }
+    }
+
+    .content-wrapper {
+      flex: 1 1 100%;
+
+      flex-direction: column;
+
+      @include respond-to(tablet) {
+        max-width: 90%;
+      }
+
+      @include respond-to(desktop) {
+        flex: 0 0 55%;
+      }
+
+      .content-container {
+        margin-bottom: $bodyPadding0;
+      }
+    }
+
+    .contact-details-wrapper {
+      flex: 1 1 45%;
+      padding-left: $bodyPadding1;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      @include respond-to-max(desktop) {
+        display: none;
+      }
+
+      .location-container {
+        margin-top: 40px;
+
+        &:first-child {
+          margin-top: 140px;
+        }
+
+        .location-info {
+          line-height: 1.69em;
+
+          &.leasing-address {
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+  }
 }

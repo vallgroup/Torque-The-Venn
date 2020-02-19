@@ -6,14 +6,13 @@ footer {
   padding: $bodyPadding0;
   box-sizing: border-box;
 
-  // @include respond-to(tablet) {
-  //   padding: 40px $bodyPadding1 20px;
-  //   justify-content: space-between;
-  // }
+  @include respond-to(tablet) {
+    padding: $bodyPadding0 $bodyPadding3;
+  }
 
-  // @include respond-to(desktop) {
-  //   padding: 60px $bodyPadding1;
-  // }
+  @include respond-to(desktop) {
+    padding: $bodyPadding0;
+  }
 
   .footer-block {
     padding-top: $bodyPadding1;

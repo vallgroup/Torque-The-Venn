@@ -21,6 +21,8 @@ $alignment_style_class = 'alignment-' . $align_image;
 
     <div class="content-container">
 
+      <div class="cta-background-container"></div>
+
       <?php if ( $title ) { ?>
         <h1><?php echo $title; ?></h1>
       <?php } ?>

@@ -48,16 +48,36 @@ if ( have_rows( $modules ) ) :
         $alternate_graphic = $options['alternate_graphic'];
         // top row
         $top_row = get_sub_field( 'top_row' );
-        $tr_title = strip_tags( $top_row['title'], '<i><b><em><strong>' );
-        $tr_content = strip_tags( $top_row['content'], '<i><b><em><strong><p><br>' );
-        $tr_call_to_action = $top_row['call_to_action'];
+        $hide_tr = isset( $top_row['hide_row'] ) && $top_row['hide_row']
+          ? 'hide_tr'
+          : '';
+        $tr_title = isset( $top_row['title'] )
+          ? strip_tags( $top_row['title'], '<i><b><em><strong>' )
+          : null;
+        $tr_content = isset( $top_row['content'] )
+          ? strip_tags( $top_row['content'], '<i><b><em><strong><p><br>' )
+          : null;
+        $tr_call_to_action = isset( $top_row['call_to_action'] )
+          ? $top_row['call_to_action']
+          : null;
         $tr_image = $top_row['image'];
         // bottom row
         $bottom_row = get_sub_field( 'bottom_row' );
-        $br_title = strip_tags( $bottom_row['title'], '<i><b><em><strong>' );
-        $br_content = strip_tags( $bottom_row['content'], '<i><b><em><strong><p><br>' );
-        $br_call_to_action = $bottom_row['call_to_action'];
-        $br_image = $bottom_row['image'];
+        $hide_br = isset( $bottom_row['hide_row'] ) && $bottom_row['hide_row']
+          ? 'hide_br'
+          : '';
+        $br_title = isset( $bottom_row['title'] )
+          ? strip_tags( $bottom_row['title'], '<i><b><em><strong>' )
+          : null;
+        $br_content = isset( $bottom_row['content'] )
+          ? strip_tags( $bottom_row['content'], '<i><b><em><strong><p><br>' )
+          : null;
+        $br_call_to_action = isset( $bottom_row['call_to_action'] )
+          ? $bottom_row['call_to_action']
+          : null;
+        $br_image = isset( $bottom_row['image'] )
+          ? $bottom_row['image']
+          : null;
 
         include locate_template( $modules_path . 'content-module-two.php' );
 

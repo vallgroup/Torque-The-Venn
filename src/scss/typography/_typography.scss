@@ -76,15 +76,17 @@ h3 {
 }
 
 h4 {
-  font-size: 1.7857em; // ~25px 
+  font-size: 1.375em; // ~22px 
   font-weight: 500;
   margin-top: 0;
+  margin-bottom: 15px;
+  color: $bluegreen;
   
   @include respond-to(tablet) {
-    font-size: 2.1875em; // ~35px
+    font-size: 1.5em; // ~24px
   }
   @include respond-to(desktop) {
-    font-size: 2.5em; // ~40px
+    font-size: 1.5em; // ~24px
   }
 }
 
@@ -92,6 +94,7 @@ h5 {
   font-size: 1.875em; // ~30px
   font-weight: 500;
   margin-top: 0;
+  color: $bluegreen;
 
   @include respond-to(tablet) {
     // font-size: 1.875em; // ~30px
