@@ -41,6 +41,15 @@ if ( class_exists( 'The_Venn_ACF' ) ) {
 
 
 /**
+ * Filtered Loop plugin settings
+ */
+
+// if ( class_exists( 'Torque_Filtered_Gallery' ) && class_exists( 'Torque_Filtered_Gallery_Shortcode' ) ) {
+//   add_filter( Torque_Filtered_Gallery_Shortcode::$GALLERY_TEMPLATE_FILTER_HANDLE, function() { return "0"; } );
+// }
+
+
+/**
  * Jetpack filters, for local/staging use
  */
 // Hook into Jetpack's form redirect filter when WP loads, without instantiating the entire class
