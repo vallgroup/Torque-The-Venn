@@ -169,6 +169,7 @@ header#header-style-1 {
     width: 100%;
 
     @include respond-to-max(tablet) {
+      max-width: 100%;
       box-shadow: 4px -2px 16px 0 #1a5858;
       background-image: linear-gradient(220deg, $paleBlue-95 -20%, $mediumGreen-95);
     }
@@ -181,7 +182,7 @@ header#header-style-1 {
       align-items: center;
       box-sizing: border-box;
       
-      padding: $bodyPadding3;
+      padding: $bodyPadding3 $bodyPadding2 $bodyPadding3 $bodyPadding3;
 
       @include respond-to(tablet) {
         height: 100vh;

@@ -9,6 +9,17 @@ if ( have_rows( $modules ) ) :
 
     switch ( get_row_layout() ) {
 
+      case 'horizontal_line' :
+
+        // options
+        $width = get_sub_field( 'width' );
+        $measurement = get_sub_field( 'measurement' );
+        $visibility = get_sub_field( 'visibility' );
+
+        include locate_template( $modules_path . 'horizontal-line.php' );
+
+        break;
+
       case 'content_spacer' :
 
         // options
@@ -154,6 +165,16 @@ if ( have_rows( $modules ) ) :
         $phone = strip_tags( get_sub_field( 'phone') );
 
         include locate_template( $modules_path . 'content-module-seven.php' );
+
+        break;
+
+      // Filtered Gallery
+      case 'content_module_eight' :
+
+        // data
+        $filtered_gallery_id = get_sub_field( 'filtered_gallery' );
+
+        include locate_template( $modules_path . 'content-module-eight.php' );
 
         break;
 
