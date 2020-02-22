@@ -118,16 +118,20 @@ header#header-style-1 {
       align-items: center;
       justify-content: center;
   
-      padding: $bodyPadding0-5;
+      padding: $bodyPadding-1;
       box-sizing: border-box;
       width: 100%;
   
       background-color: $mediumGreen;
+
+      @include respond-to(desktop) {
+        padding: $bodyPadding-2;
+      }
   
       .notification-bar-content-wrapper {
   
         .notification-bar-content {
-          padding-right: $bodyPadding0-5;
+          padding-right: $bodyPadding-1;
         }
     
         .notification-bar-cta {
