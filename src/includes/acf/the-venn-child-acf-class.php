@@ -29,7 +29,9 @@ class The_Venn_ACF {
 
   public function acf_init() {
     // add content sections here
-    if( function_exists('acf_add_local_field_group') ):
+    // TODO: export once finished building theme
+
+    /* if ( function_exists('acf_add_local_field_group') ):
 
       acf_add_local_field_group(array(
         'key' => 'group_5e34648263825',
@@ -2383,7 +2385,7 @@ class The_Venn_ACF {
         'description' => '',
       ));
       
-      endif;
+      endif; */
   }
 }
 
