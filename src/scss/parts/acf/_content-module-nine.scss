@@ -1,0 +1,64 @@
+.content-module-nine-container {
+  position: relative;
+  width: 100%;
+
+  box-sizing: border-box;
+  padding: $bodyPadding0 $bodyPadding1;
+
+  clear: left;
+
+  .torque-map {
+
+    @include respond-to(tablet) {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    & > :first-child {
+      width: 100%;
+      
+      @include respond-to(tablet) { 
+        flex: 0 0 48%;
+      }
+      
+      .torque-map-container {
+        padding-top: 70%;
+
+        @include respond-to(tablet) {
+          padding-top: 120%;
+        }
+        @include respond-to(desktop) {
+          padding-top: 100%;
+        }
+      }
+    }
+    
+    .torque-map-pois {
+      width: 100%;
+      padding: 25px 0;
+      
+      @include respond-to(tablet) { 
+        flex: 0 0 48%;
+      }
+
+      .torque-map-poi {
+        &.active {
+          button {
+            color: $white;
+            background-color: #96d6ce;
+          }
+        }
+        button {
+          background-color: #ebebeb;
+          border: 0;
+          border-radius: 8px;
+          padding: 8px 12px;
+          margin: 0 5px 8px;
+        }
+      }
+    }
+
+  }
+}

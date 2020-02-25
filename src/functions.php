@@ -41,6 +41,33 @@ if ( class_exists( 'The_Venn_ACF' ) ) {
 
 
 /**
+ * Map plugin settings
+ */
+
+add_filter( 'torque_map_api_key', function( $n ) {
+  return get_field( 'google_maps_api_key', 'options' )
+    ? get_field( 'google_maps_api_key', 'options' )
+    : '';
+} );
+
+add_filter( 'torque_map_pois_allowed', function( $n ) {
+  return 5;
+} );
+
+// add_filter( 'torque_map_manual_pois', function( $n ) {
+//   return true;
+// } );
+
+add_filter( 'torque_map_pois_location', function( $n ) {
+  return 'bottom';
+} );
+
+add_filter( 'torque_map_display_pois_list', function( $n ) {
+  return true;
+} );
+
+
+/**
  * Filtered Loop plugin settings
  */
 

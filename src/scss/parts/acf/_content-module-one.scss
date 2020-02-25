@@ -5,6 +5,8 @@
   padding: $bodyPadding1;
   box-sizing: border-box;
 
+  clear: right;
+
   .background-graphic-container {
     display: none;
 
@@ -19,6 +21,29 @@
     }
     .content-tagline {
       @extend %contentTagline;
+    }
+    .content {
+      width: 100%;
+      padding-top: $bodyPadding1;
+
+      @include respond-to(tablet) {
+        width: calc(100vw - #{$bodyPadding1} - #{$bodyPadding1});
+      }
+      @include respond-to(desktop) {
+        width: 100%;
+      }
+
+      img {
+        display: inline-block;
+        padding: 0;
+        width: 100%;
+        max-width: 49.5%;
+        height: auto;
+
+        @include respond-to(tablet) {
+          max-width: 24.5%;
+        }
+      }
     }
     .cta-btn {
       @extend %useButtonDark;

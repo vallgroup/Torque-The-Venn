@@ -62,7 +62,8 @@
         max-height: 350px;
 
         @include respond-to(desktop) {
-          max-height: 550px;
+          transform: translateX(30%) translateY(0%) !important;
+          max-height: 680px;
         }
       }
     }
@@ -112,7 +113,8 @@
         max-height: 350px;
 
         @include respond-to(desktop) {
-          max-height: 550px;
+          transform: translateX(-30%) translateY(0%) !important;
+          max-height: 680px;
         }
       }
     }

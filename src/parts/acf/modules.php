@@ -42,7 +42,7 @@ if ( have_rows( $modules ) ) :
         // data
         $title = strip_tags( get_sub_field( 'title' ), '<i><b><em><strong>' );
         $tagline = strip_tags( get_sub_field( 'tagline'), '<i><b><em><strong>' );
-        $content = strip_tags( get_sub_field( 'content'), '<i><b><em><strong><p><br>' );
+        $content = strip_tags( get_sub_field( 'content'), '<i><b><em><strong><p><br><img>' );
         $call_to_action = get_sub_field( 'call_to_action' );
 
         include locate_template( $modules_path . 'content-module-one.php' );
@@ -175,6 +175,17 @@ if ( have_rows( $modules ) ) :
         $filtered_gallery_id = get_sub_field( 'filtered_gallery' );
 
         include locate_template( $modules_path . 'content-module-eight.php' );
+
+        break;
+
+      // Filtered Map
+      case 'content_module_nine' :
+        
+        // data
+        $title = strip_tags( get_sub_field( 'title' ), '<i><b><em><strong>' );
+        $map_id = get_sub_field( 'map_id' );
+
+        include locate_template( $modules_path . 'content-module-nine.php' );
 
         break;
 
