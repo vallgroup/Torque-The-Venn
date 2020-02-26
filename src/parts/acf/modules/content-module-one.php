@@ -42,7 +42,9 @@ $content_align_class = 'align-content-' . $align_text;
     <? endif; ?>
 
     <?php if ( $call_to_action ) { ?>
-      <a class="cta-btn" href="<?php echo $call_to_action['url']; ?>"><?php echo $call_to_action['title']; ?></a>
+      <div class="cta-container">
+        <a class="cta-btn" href="<?php echo $call_to_action['url']; ?>"><?php echo $call_to_action['title']; ?></a>
+      </div>
     <?php } ?>
   </div>
 </div>
