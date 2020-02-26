@@ -41,8 +41,9 @@ if ( have_rows( $modules ) ) :
         $alternate_graphic = $options['alternate_graphic'];
         // data
         $title = strip_tags( get_sub_field( 'title' ), '<i><b><em><strong>' );
-        $tagline = strip_tags( get_sub_field( 'tagline'), '<i><b><em><strong>' );
+        $tagline = strip_tags( get_sub_field( 'tagline'), '<i><b><em><strong><p><br>' );
         $content = strip_tags( get_sub_field( 'content'), '<i><b><em><strong><p><br><img>' );
+        $icons_and_text = 'icons_and_text';
         $call_to_action = get_sub_field( 'call_to_action' );
 
         include locate_template( $modules_path . 'content-module-one.php' );
@@ -57,6 +58,7 @@ if ( have_rows( $modules ) ) :
         $alignment_style = $options['alignment_style'];
         $include_graphic = $options['include_graphic'];
         $alternate_graphic = $options['alternate_graphic'];
+        // var_dump($alternate_graphic);
         // top row
         $top_row = get_sub_field( 'top_row' );
         $hide_tr = isset( $top_row['hide_row'] ) && $top_row['hide_row']
@@ -118,11 +120,11 @@ if ( have_rows( $modules ) ) :
         // left column
         $left_column = get_sub_field( 'left_column' );
         $lc_title = strip_tags( $left_column['title'], '<i><b><em><strong>' );
-        $lc_content = strip_tags( $left_column['content'], '<i><b><em><strong><p><br>' );
+        $lc_content = strip_tags( $left_column['content'], '<a><ul><ol><li><i><b><em><strong><p><br>' );
         // right column
         $right_column = get_sub_field( 'right_column' );
         $rc_title = strip_tags( $right_column['title'], '<i><b><em><strong>' );
-        $rc_content = strip_tags( $right_column['content'], '<i><b><em><strong><p><br>' );
+        $rc_content = strip_tags( $right_column['content'], '<a><ul><ol><li><i><b><em><strong><p><br>' );
 
         include locate_template( $modules_path . 'content-module-four.php' );
 

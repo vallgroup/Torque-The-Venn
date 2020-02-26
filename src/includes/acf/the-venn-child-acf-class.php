@@ -6,15 +6,15 @@ class The_Venn_ACF {
 
   public function __construct() {
     add_action( 'admin_init', array( $this, 'acf_admin_init' ), 99);
-    // add_action( 'acf/init', array( $this, 'acf_init' ) );
+    add_action( 'acf/init', array( $this, 'acf_init' ) );
 
     // hide acf in admin - client doesnt need to see this
-    // add_filter( 'acf/settings/show_admin', '__return_false' );
+    add_filter( 'acf/settings/show_admin', '__return_false' );
 
     // add acf fields to wp search
-    if ( class_exists( 'Torque_ACF_Search' ) ) {
-      add_filter( Torque_ACF_Search::$ACF_SEARCHABLE_FIELDS_FILTER_HANDLE, array( $this, 'add_fields_to_search' ) );
-    }
+    // if ( class_exists( 'Torque_ACF_Search' ) ) {
+    //   add_filter( Torque_ACF_Search::$ACF_SEARCHABLE_FIELDS_FILTER_HANDLE, array( $this, 'add_fields_to_search' ) );
+    // }
   }
 
   public function acf_admin_init() {
@@ -22,16 +22,15 @@ class The_Venn_ACF {
     // remove_menu_page( 'acf-options' );
   }
 
-  public function add_fields_to_search( $fields ) {
-    // $fields[] = 'custom_field_name';
-    return $fields;
-  }
+  // public function add_fields_to_search( $fields ) {
+  //   // $fields[] = 'custom_field_name';
+  //   return $fields;
+  // }
 
   public function acf_init() {
     // add content sections here
-    // TODO: export once finished building theme
 
-    /* if ( function_exists('acf_add_local_field_group') ):
+    if( function_exists('acf_add_local_field_group') ):
 
       acf_add_local_field_group(array(
         'key' => 'group_5e34648263825',
@@ -78,7 +77,7 @@ class The_Venn_ACF {
       
       acf_add_local_field_group(array(
         'key' => 'group_5e2b321e274e6',
-        'title' => 'The Venn Options',
+        'title' => 'Porte Options',
         'fields' => array(
           array(
             'key' => 'field_5e2b3226d1406',
@@ -563,8 +562,8 @@ class The_Venn_ACF {
           ),
           array(
             'key' => 'field_5e2b3ce36aeef',
-            'label' => 'The Venn',
-            'name' => 'the_venn',
+            'label' => 'Porte',
+            'name' => 'porte',
             'type' => 'group',
             'instructions' => 'The primary location. This information is used throughout the website, including the footer and contact page.',
             'required' => 0,
@@ -707,6 +706,198 @@ class The_Venn_ACF {
               ),
             ),
           ),
+          array(
+            'key' => 'field_5e5076e2848d1',
+            'label' => 'Floor Plan Pages',
+            'name' => '',
+            'type' => 'tab',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+              'width' => '',
+              'class' => '',
+              'id' => '',
+            ),
+            'placement' => 'left',
+            'endpoint' => 0,
+          ),
+          array(
+            'key' => 'field_5e5077580af29',
+            'label' => 'Gallery',
+            'name' => 'gallery',
+            'type' => 'post_object',
+            'instructions' => 'Shown on each of the single floor plan view pages (not the archive pages).',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+              'width' => '',
+              'class' => '',
+              'id' => '',
+            ),
+            'post_type' => array(
+              0 => 'tq_filtered_gallery',
+            ),
+            'taxonomy' => array(
+            ),
+            'allow_null' => 0,
+            'multiple' => 0,
+            'return_format' => 'id',
+            'ui' => 1,
+          ),
+          array(
+            'key' => 'field_5e5078a8cf8c5',
+            'label' => 'CTA Banner',
+            'name' => 'cta_banner',
+            'type' => 'group',
+            'instructions' => 'Shown on each of the single floor plan view pages and the archive floor plan pages.',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+              'width' => '',
+              'class' => '',
+              'id' => '',
+            ),
+            'layout' => 'block',
+            'sub_fields' => array(
+              array(
+                'key' => 'field_5e507966cf8c6',
+                'label' => 'Align Image',
+                'name' => 'align_image',
+                'type' => 'radio',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                  'width' => '50',
+                  'class' => '',
+                  'id' => '',
+                ),
+                'choices' => array(
+                  'left' => 'Left',
+                  'right' => 'Right',
+                ),
+                'allow_null' => 0,
+                'other_choice' => 0,
+                'default_value' => 'right',
+                'layout' => 'vertical',
+                'return_format' => 'value',
+                'save_other_choice' => 0,
+              ),
+              array(
+                'key' => 'field_5e50798ccf8c7',
+                'label' => 'Image',
+                'name' => 'image',
+                'type' => 'image',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                  'width' => '50',
+                  'class' => '',
+                  'id' => '',
+                ),
+                'return_format' => 'array',
+                'preview_size' => 'medium',
+                'library' => 'all',
+                'min_width' => '',
+                'min_height' => '',
+                'min_size' => '',
+                'max_width' => '',
+                'max_height' => '',
+                'max_size' => '',
+                'mime_types' => '',
+              ),
+              array(
+                'key' => 'field_5e5079a4cf8c8',
+                'label' => 'Title',
+                'name' => 'title',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                  'width' => '50',
+                  'class' => '',
+                  'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+              ),
+              array(
+                'key' => 'field_5e5079aacf8c9',
+                'label' => 'Button',
+                'name' => 'button',
+                'type' => 'link',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                  'width' => '25',
+                  'class' => '',
+                  'id' => '',
+                ),
+                'return_format' => 'array',
+              ),
+              array(
+                'key' => 'field_5e5079b7cf8ca',
+                'label' => 'Phone',
+                'name' => 'phone',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                  'width' => '25',
+                  'class' => '',
+                  'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+              ),
+            ),
+          ),
+          array(
+            'key' => 'field_5e5405902dc80',
+            'label' => 'Google',
+            'name' => '',
+            'type' => 'tab',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+              'width' => '',
+              'class' => '',
+              'id' => '',
+            ),
+            'placement' => 'left',
+            'endpoint' => 0,
+          ),
+          array(
+            'key' => 'field_5e5404752dc7f',
+            'label' => 'Google Maps API Key',
+            'name' => 'google_maps_api_key',
+            'type' => 'text',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+              'width' => '',
+              'class' => '',
+              'id' => '',
+            ),
+            'default_value' => '',
+            'placeholder' => '',
+            'prepend' => '',
+            'append' => '',
+            'maxlength' => '',
+          ),
         ),
         'location' => array(
           array(
@@ -831,7 +1022,7 @@ class The_Venn_ACF {
                       'class' => '',
                       'id' => '',
                     ),
-                    'default_value' => 10,
+                    'default_value' => 2,
                     'placeholder' => '',
                     'prepend' => '',
                     'append' => '',
@@ -858,7 +1049,7 @@ class The_Venn_ACF {
                       'vh' => 'Percentage of viewport height (vh)',
                     ),
                     'default_value' => array(
-                      0 => 'px',
+                      0 => 'vw',
                     ),
                     'allow_null' => 0,
                     'multiple' => 0,
@@ -1095,7 +1286,7 @@ class The_Venn_ACF {
                     'required' => 0,
                     'conditional_logic' => 0,
                     'wrapper' => array(
-                      'width' => '50',
+                      'width' => '100',
                       'class' => '',
                       'id' => '',
                     ),
@@ -1109,7 +1300,7 @@ class The_Venn_ACF {
                     'key' => 'field_5e349113dc061',
                     'label' => 'Tagline',
                     'name' => 'tagline',
-                    'type' => 'text',
+                    'type' => 'wysiwyg',
                     'instructions' => '',
                     'required' => 0,
                     'conditional_logic' => 0,
@@ -1119,16 +1310,16 @@ class The_Venn_ACF {
                       'id' => '',
                     ),
                     'default_value' => '',
-                    'placeholder' => '',
-                    'prepend' => '',
-                    'append' => '',
-                    'maxlength' => '',
+                    'tabs' => 'all',
+                    'toolbar' => 'full',
+                    'media_upload' => 1,
+                    'delay' => 0,
                   ),
                   array(
                     'key' => 'field_5e349126dc062',
                     'label' => 'Content',
                     'name' => 'content',
-                    'type' => 'textarea',
+                    'type' => 'wysiwyg',
                     'instructions' => '',
                     'required' => 0,
                     'conditional_logic' => 0,
@@ -1138,10 +1329,74 @@ class The_Venn_ACF {
                       'id' => '',
                     ),
                     'default_value' => '',
-                    'placeholder' => '',
-                    'maxlength' => '',
-                    'rows' => 4,
-                    'new_lines' => 'wpautop',
+                    'tabs' => 'visual',
+                    'toolbar' => 'basic',
+                    'media_upload' => 1,
+                    'delay' => 0,
+                  ),
+                  array(
+                    'key' => 'field_5e55bc9ebcdb7',
+                    'label' => 'Icons & Text',
+                    'name' => 'icons_and_text',
+                    'type' => 'repeater',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                      'width' => '50',
+                      'class' => '',
+                      'id' => '',
+                    ),
+                    'collapsed' => '',
+                    'min' => 0,
+                    'max' => 0,
+                    'layout' => 'row',
+                    'button_label' => 'Add Column',
+                    'sub_fields' => array(
+                      array(
+                        'key' => 'field_5e55bd2a6fd5a',
+                        'label' => 'Icon',
+                        'name' => 'icon',
+                        'type' => 'image',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                          'width' => '',
+                          'class' => '',
+                          'id' => '',
+                        ),
+                        'return_format' => 'url',
+                        'preview_size' => 'thumbnail',
+                        'library' => 'all',
+                        'min_width' => '',
+                        'min_height' => '',
+                        'min_size' => '',
+                        'max_width' => '',
+                        'max_height' => '',
+                        'max_size' => '',
+                        'mime_types' => '',
+                      ),
+                      array(
+                        'key' => 'field_5e55bd476fd5b',
+                        'label' => 'Text',
+                        'name' => 'text',
+                        'type' => 'text',
+                        'instructions' => 'Wrap words in tags to place emphasis on them: https://www.w3schools.com/html/html_formatting.asp',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                          'width' => '',
+                          'class' => '',
+                          'id' => '',
+                        ),
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'maxlength' => '',
+                      ),
+                    ),
                   ),
                   array(
                     'key' => 'field_5e3493b338e16',
@@ -2355,6 +2610,58 @@ class The_Venn_ACF {
                 'min' => '',
                 'max' => '',
               ),
+              'layout_5e54002a74669' => array(
+                'key' => 'layout_5e54002a74669',
+                'name' => 'content_module_nine',
+                'label' => 'Filtered Map',
+                'display' => 'block',
+                'sub_fields' => array(
+                  array(
+                    'key' => 'field_5e5400a47466b',
+                    'label' => 'Title',
+                    'name' => 'title',
+                    'type' => 'text',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                      'width' => '50',
+                      'class' => '',
+                      'id' => '',
+                    ),
+                    'default_value' => '',
+                    'placeholder' => '',
+                    'prepend' => '',
+                    'append' => '',
+                    'maxlength' => '',
+                  ),
+                  array(
+                    'key' => 'field_5e5400a17466a',
+                    'label' => 'Filtered Map',
+                    'name' => 'map_id',
+                    'type' => 'post_object',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                      'width' => '50',
+                      'class' => '',
+                      'id' => '',
+                    ),
+                    'post_type' => array(
+                      0 => 'torque_map',
+                    ),
+                    'taxonomy' => array(
+                    ),
+                    'allow_null' => 0,
+                    'multiple' => 0,
+                    'return_format' => 'id',
+                    'ui' => 1,
+                  ),
+                ),
+                'min' => '',
+                'max' => '',
+              ),
             ),
             'button_label' => 'Add Content Module',
             'min' => '',
@@ -2385,7 +2692,8 @@ class The_Venn_ACF {
         'description' => '',
       ));
       
-      endif; */
+      endif;
+
   }
 }
 

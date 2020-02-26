@@ -17,31 +17,53 @@
 
   .content-container {
     h1 {
-      margin-bottom: 3vw;
+      @extend %contentHeadline;
+      @include max-width(575px);
     }
     .content-tagline {
       @extend %contentTagline;
+      @include max-width(575px);
+      display: inline-block;
+
+      p {
+        display: inline-block;
+      }
     }
     .content {
-      width: 100%;
-      padding-top: $bodyPadding1;
+      @extend %contentBody;
+      @include max-width(575px);
+      display: inline-block;
 
-      @include respond-to(tablet) {
-        width: calc(100vw - #{$bodyPadding1} - #{$bodyPadding1});
-      }
-      @include respond-to(desktop) {
-        width: 100%;
-      }
-
-      img {
+      p {
         display: inline-block;
-        padding: 0;
         width: 100%;
-        max-width: 49.5%;
-        height: auto;
+        line-height: 1.69em;
+      }
+    }
+    .icons-text-container {
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .icon-text-item {
+        flex: 0 0 48%;
+        border: 2px solid $mediumGreen;
+        margin-bottom: 2%;
 
         @include respond-to(tablet) {
-          max-width: 24.5%;
+          flex: 0 0 23%;
+        }
+
+        img,
+        p {
+          width: 100%;
+          box-sizing: border-box;
+        } 
+
+        p {
+          text-align: center;
+          padding: 6px 8px;
         }
       }
     }
@@ -69,9 +91,11 @@
         }
       }
     }
+    
     .content-container {
       @extend %contentRightSpaceLeft;
     }
+
   }
 
   // Content: left
@@ -93,8 +117,19 @@
         }
       }
     }
+    
     .content-container {
       @extend %contentLeftSpaceRight;
+      
+      h1 {
+        @include max-width(675px);
+      }
+      .content-tagline {
+        @include max-width(675px);
+      }
+      .content {
+        @include max-width(675px);
+      }
     }
   }
 }

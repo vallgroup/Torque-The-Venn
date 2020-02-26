@@ -20,6 +20,7 @@ class Torque_Jetpack_Form {
     $this->form_options = get_sub_field( 'form_options' );
 
     $this->build_form();
+    $this->print_form();
 
     // TODO for plugin?
     // register ACF fields
@@ -77,31 +78,29 @@ class Torque_Jetpack_Form {
 
   public function print_form() {
     
-    // build extra css classess
-    $extra_form_classes = isset( $this->form_options['hide_labels'] ) 
-      && $this->form_options['hide_labels']
-        ? ' hide-labels'
-        : '';
-
-    // echo form to page
-    echo '<div class="form-container' . $extra_form_classes . '">';
     if ( 
       $this->built_form_shortcode && 
       $this->built_form_shortcode !== null 
     ) {
+      // build extra css classess
+      $extra_form_classes = isset( $this->form_options['hide_labels'] ) 
+        && $this->form_options['hide_labels']
+          ? ' hide-labels'
+          : '';
+
+      // echo form to page
+      echo '<div class="form-container' . $extra_form_classes . '">';
       // execute shortcode
       echo do_shortcode( $this->built_form_shortcode );
+      echo '</div>';
     }
-    echo '</div>';
   }
 
   /**
    * Displays warning in a wrapper container
    */
   private function display_warning( $warning ) {
-    echo '<div class="form-container">';
-    echo $warning;
-    echo '</div>';
+    echo '<div class="form-container">' . $warning . '</div>';
   }
 
   // TODO: This doesn't appear to be reachable when called from this class

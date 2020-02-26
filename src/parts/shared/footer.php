@@ -4,9 +4,9 @@
  */
 
 // Locations
-$location_the_venn = get_field( 'the_venn', 'options' );
-$the_venn_address = isset( $location_the_venn['address'] ) 
-  ? strip_tags( $location_the_venn['address'], '<br>, <p>' ) 
+$location_porte = get_field( 'porte', 'options' );
+$porte_address = isset( $location_porte['address'] ) 
+  ? strip_tags( $location_porte['address'], '<br>, <p>' ) 
   : null;
 $location_leasing_office = get_field( 'leasing_office', 'options' );
 $leasing_office_phone = isset( $location_leasing_office['phone'] ) 
@@ -28,13 +28,13 @@ $illegal_link_chars = array( ' ', '.', '-', '( ', ' )' );
 
   <div class="footer-block footer-block-one">
     <?php get_template_part( 'parts/shared/logo', 'white' ); ?>
-    <?php if ( $the_venn_address ) { ?>
+    <?php if ( $porte_address ) { ?>
       <div class="location-info">
         <a 
-          href="https://maps.google.com/?q=<?php echo urlencode( strip_tags( $the_venn_address ) ); ?>" 
+          href="https://maps.google.com/?q=<?php echo urlencode( strip_tags( $porte_address ) ); ?>" 
           target="_blank"
           rel="noopener noreferrer"
-        ><?php echo $the_venn_address; ?></a>
+        ><?php echo $porte_address; ?></a>
       </div>
     <?php } ?>
     <div class="additional-logos">

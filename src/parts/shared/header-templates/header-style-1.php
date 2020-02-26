@@ -72,8 +72,8 @@ $extra_classes .= !get_field( 'enable_hero', get_the_ID() )
   <!-- Burger Nav Items -->
 
   <div class="col1 torque-navigation-toggle torque-header-menu-items-mobile">
-    <svg class="svg-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 1080" preserveAspectRatio="none" shape-rendering="geometricPrecision">
-      <polygon points="0,0 250,0 630,420 50,1080 0,1080"></polygon>
+    <svg class="svg-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 1000" preserveAspectRatio="none" shape-rendering="geometricPrecision">
+      <polygon points="0,0 250,0 630,420 0,1000"></polygon>
       <defs>
         <linearGradient id="grad" gradientTransform="rotate(119)">
           <stop offset="-24%" stop-color="#63be73"/>

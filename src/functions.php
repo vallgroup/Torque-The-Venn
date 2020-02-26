@@ -59,7 +59,7 @@ add_filter( 'torque_map_pois_allowed', function( $n ) {
 // } );
 
 add_filter( 'torque_map_pois_location', function( $n ) {
-  return 'bottom';
+  return 'middle';
 } );
 
 add_filter( 'torque_map_display_pois_list', function( $n ) {

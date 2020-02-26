@@ -16,8 +16,12 @@ $alignment_style_class = 'alignment-' . $alignment_style;
 ">
   <?php // background graphic template part
     $align_graphic = $alignment_style === 'style_1' ? 'right' : 'left';
-    if ( $align_graphic === 'right' ) {
-      // use a special graphic for right-aligned alt graphic, for this module...
+    if ( 
+      $align_graphic === 'right' 
+      && $hide_tr === 'hide_tr'
+      && $alternate_graphic
+    ) {
+      // use a special graphic for right-aligned alt graphic, with , for this module...
       $alternate_graphic_number = 1;
     }
     include locate_template( '/parts/shared/background-graphic.php' ); 
@@ -29,13 +33,18 @@ $alignment_style_class = 'alignment-' . $alignment_style;
         <h2><?php echo $tr_title; ?></h2>
       <?php } ?>
 
-      <?php if ( $tr_content ) { ?>
-        <div class="content-wrapper"><?php echo $tr_content; ?></div>
-      <?php } ?>
+      <div class="content-wrapper">
 
-      <?php if ( $tr_call_to_action ) { ?>
-        <a class="cta-btn" href="<?php echo $tr_call_to_action['url']; ?>"><?php echo $tr_call_to_action['title']; ?></a>
-      <?php } ?>
+        <?php if ( $tr_content ) { ?>
+          <?php echo $tr_content; ?>
+        <?php } ?>
+        
+        <?php if ( $tr_call_to_action ) { ?>
+          <a class="cta-btn" href="<?php echo $tr_call_to_action['url']; ?>"><?php echo $tr_call_to_action['title']; ?></a>
+        <?php } ?>
+
+      </div>
+
     </div>
 
     <div class="image-container">
@@ -55,13 +64,18 @@ $alignment_style_class = 'alignment-' . $alignment_style;
         <h2><?php echo $br_title; ?></h2>
       <?php } ?>
 
-      <?php if ( $br_content ) { ?>
-        <div class="content-wrapper"><?php echo $br_content; ?></div>
-      <?php } ?>
+      <div class="content-wrapper">
+        
+        <?php if ( $br_content ) { ?>
+          <?php echo $br_content; ?>
+        <?php } ?>
 
-      <?php if ( $br_call_to_action ) { ?>
-        <a class="cta-btn" href="<?php echo $br_call_to_action['url']; ?>"><?php echo $br_call_to_action['title']; ?></a>
-      <?php } ?>
+        <?php if ( $br_call_to_action ) { ?>
+          <a class="cta-btn" href="<?php echo $br_call_to_action['url']; ?>"><?php echo $br_call_to_action['title']; ?></a>
+        <?php } ?>
+
+      </div>
+          
     </div>
 
     <div class="image-container">

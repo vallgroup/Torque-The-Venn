@@ -41,16 +41,15 @@ $include_graphic = $alignment_style === 'style_2';
       class_exists( 'Torque_Jetpack_Form_Fields' )
     ) {
       $torque_jetpack_form = new Torque_Jetpack_Form();
-      $torque_jetpack_form->print_form();
     } ?>
 
   </div>
 
   <?php if ( $alignment_style === 'style_3' ) { 
     // Locations
-    $location_the_venn = get_field( 'the_venn', 'options' );
-    $the_venn_address = isset( $location_the_venn['address'] ) 
-      ? strip_tags( $location_the_venn['address'], '<br>, <p>' ) 
+    $location_porte = get_field( 'porte', 'options' );
+    $porte_address = isset( $location_porte['address'] ) 
+      ? strip_tags( $location_porte['address'], '<br>, <p>' ) 
       : null;
     $location_leasing_office = get_field( 'leasing_office', 'options' );
     $leasing_office_phone = isset( $location_leasing_office['phone'] ) 
@@ -66,41 +65,41 @@ $include_graphic = $alignment_style === 'style_2';
 
     $illegal_link_chars = array( ' ', '.', '-', '( ', ' )' );
   ?>
-
-  <? } ?>
-  <div class="contact-details-wrapper">
-    <div class="location-container">
-      <h4>The Venn</h4>
-      <?php if ( $the_venn_address ) { ?>
-        <div class="location-info">
-          <a 
-            href="https://maps.google.com/?q=<?php echo urlencode( strip_tags( $the_venn_address ) ); ?>" 
-            target="_blank"
-            rel="noopener noreferrer"
-          ><?php echo $the_venn_address; ?></a>
-        </div>
-      <?php } ?>
-    </div>
-    <div class="location-container">
-      <h4>Leasing Office</h4><?php if ( $leasing_office_phone ) { ?>
-      <div class="location-info">
-        <a href="tel:<?php echo strip_tags( str_replace( $illegal_link_chars, '', $leasing_office_phone ) ); ?>"><?php echo $leasing_office_phone; ?></a>
+    <div class="contact-details-wrapper">
+      <div class="location-container">
+        <h4>Porte</h4>
+        <?php if ( $porte_address ) { ?>
+          <div class="location-info">
+            <a 
+              href="https://maps.google.com/?q=<?php echo urlencode( strip_tags( $porte_address ) ); ?>" 
+              target="_blank"
+              rel="noopener noreferrer"
+            ><?php echo $porte_address; ?></a>
+          </div>
+        <?php } ?>
       </div>
-      <?php } ?>
-      <?php if ( $leasing_office_email ) { ?>
-        <div class="location-info">
-          <a href="mailto:<?php echo $leasing_office_email; ?>"><?php echo $leasing_office_email; ?></a>
-        </div>
-      <?php } ?>
-      <?php if ( $leasing_office_address ) { ?>
-        <div class="location-info leasing-address">
-          <a 
-            href="https://maps.google.com/?q=<?php echo urlencode( strip_tags( $leasing_office_address ) ); ?>" 
-            target="_blank" 
-            rel="noopener noreferrer"
-          ><?php echo $leasing_office_address; ?></a>
-        </div>
-      <?php } ?>
+      <div class="location-container">
+        <h4>Leasing Office</h4>
+        <?php if ( $leasing_office_phone ) { ?>
+          <div class="location-info">
+            <a href="tel:<?php echo strip_tags( str_replace( $illegal_link_chars, '', $leasing_office_phone ) ); ?>"><?php echo $leasing_office_phone; ?></a>
+          </div>
+        <?php } ?>
+        <?php if ( $leasing_office_email ) { ?>
+          <div class="location-info">
+            <a href="mailto:<?php echo $leasing_office_email; ?>"><?php echo $leasing_office_email; ?></a>
+          </div>
+        <?php } ?>
+        <?php if ( $leasing_office_address ) { ?>
+          <div class="location-info leasing-address">
+            <a 
+              href="https://maps.google.com/?q=<?php echo urlencode( strip_tags( $leasing_office_address ) ); ?>" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            ><?php echo $leasing_office_address; ?></a>
+          </div>
+        <?php } ?>
+      </div>
     </div>
-  </div>
+<? } ?>
 </div>

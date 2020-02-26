@@ -3,26 +3,26 @@
 
   // add header height, and not fixed
   $mobileHeight: 95px;
-  $tabletHeight: 100px;
+  $tabletHeight: 120px;
   $desktopHeight: 180px;
 
   // otherwise...
   @if $removeHeaderHeight == true {
     @if $isFixed == true {
       $mobileHeight: -75px;
-      $tabletHeight: -75px;
+      $tabletHeight: -100px;
       $desktopHeight: -150px;
     }
     @else {
       $mobileHeight: -95px;
-      $tabletHeight: -100px;
+      $tabletHeight: -120px;
       $desktopHeight: -180px;
     }
   }
   @else {
     @if $isFixed == true {
       $mobileHeight: 75px;
-      $tabletHeight: 75px;
+      $tabletHeight: 100px;
       $desktopHeight: 150px;
     }
   }

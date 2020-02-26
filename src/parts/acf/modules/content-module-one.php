@@ -21,12 +21,25 @@ $content_align_class = 'align-content-' . $align_text;
     <?php } ?>
 
     <?php if ( $tagline ) { ?>
-      <p class="content-tagline"><?php echo $tagline; ?></p>
+      <div class="content-tagline"><?php echo $tagline; ?></div>
     <?php } ?>
 
     <?php if ( $content ) { ?>
       <div class="content"><?php echo $content; ?></div>
     <?php } ?>
+
+    <?php if ( have_rows( $icons_and_text ) ) : ?>
+      <div class="icons-text-container">
+        <? while ( have_rows( $icons_and_text ) ) : the_row();
+          $image = get_sub_field('icon');
+          $text = get_sub_field('text'); ?>
+          <div class="icon-text-item">
+            <image src="<?php echo $image; ?>" width="100%" height="auto" alt="icon"/>
+            <p><?php echo $text; ?></p>
+          </div>
+        <? endwhile; ?>
+      </div>
+    <? endif; ?>
 
     <?php if ( $call_to_action ) { ?>
       <a class="cta-btn" href="<?php echo $call_to_action['url']; ?>"><?php echo $call_to_action['title']; ?></a>

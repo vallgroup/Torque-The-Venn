@@ -8,8 +8,8 @@ header#header-style-1 {
 
   .torque-header-content-wrapper {
     display: flex;
-    padding-left: $bodyPadding1;
-    padding-right: $bodyPadding1;
+    padding-left: $bodyPadding0;
+    padding-right: $bodyPadding0;
     align-items: center;
     justify-content: center;
     flex-direction: row-reverse;
@@ -18,6 +18,11 @@ header#header-style-1 {
     @include useHeaderHeight(height, false);
     @include useHeaderPadding();
 
+    @include respond-to(tablet) {
+      padding-left: $bodyPadding1;
+      padding-right: $bodyPadding1;
+    }
+
     @include respond-to(desktop) {
       flex-direction: row;
     }
@@ -25,8 +30,13 @@ header#header-style-1 {
     // left area
     .torque-header-left-area-wrapper {
       display: flex;
-      flex: 2;
+      flex: 1.5;
       justify-content: space-evenly;
+
+
+      @include respond-to(tablet) {
+        flex: 2;
+      }
 
       .torque-burger-menu {
         cursor: pointer;
@@ -36,7 +46,15 @@ header#header-style-1 {
         @include respond-to(desktop) {
           position: absolute;
           left: $bodyPadding2;
-          margin-top: 10px;
+        }
+
+        &.active {
+          @include respond-to-max(desktop) {
+            position: absolute;
+            left: unset;
+            right: 6vw;
+            top: 6vw;
+          }
         }
         
         .torque-burger-menu-line {
@@ -49,10 +67,12 @@ header#header-style-1 {
 
         @include respond-to(desktop) {
           display: flex;
+          justify-content: space-between;
           padding-left: 9vw;
+          width: 100%;
   
           .quick-nav-item {
-            margin: auto 20px;
+            margin: auto 0;
           }
         }
       }
@@ -74,9 +94,13 @@ header#header-style-1 {
     // right area
     .torque-header-right-area-wrapper {
       display: flex;
-      flex: 2;
+      flex: 1.5;
       justify-content: space-evenly;
       align-items: center;
+
+      @include respond-to(tablet) {
+        flex: 2;
+      }
 
       .header-cta-one-wrapper {
         display: none;
@@ -104,6 +128,10 @@ header#header-style-1 {
           @extend %useButtonLight;
           font-size: 1.125em; // ~18px
           margin-top: 0;
+
+          @include respond-to-max(tablet) {
+            padding: 14px 18px 4px 10px;
+          }
         }
       }
     }
@@ -118,7 +146,7 @@ header#header-style-1 {
       align-items: center;
       justify-content: center;
   
-      padding: $bodyPadding-1;
+      padding: $bodyPadding0 $bodyPadding4 $bodyPadding0 $bodyPadding1;
       box-sizing: border-box;
       width: 100%;
   
@@ -137,6 +165,10 @@ header#header-style-1 {
         .notification-bar-cta {
           text-transform: uppercase;
           text-decoration: underline;
+          font-weight: bold;
+          white-space: nowrap;
+          margin-top: 5px;
+          display: inline-block;
         }
       }
   
@@ -147,9 +179,13 @@ header#header-style-1 {
         transform: rotate(45deg);
         transform-origin: center;
         
-        font-size: 2em;
+        font-size: 2.8em;
         font-weight: 300;
         cursor: pointer;
+
+        @include respond-to(tablet) {
+          font-size: 2em;
+        }
 
         @include respond-to(desktop) {
           right: $bodyPadding2;
@@ -169,10 +205,13 @@ header#header-style-1 {
     position: fixed;
     left: 0;
     top: 0;
-    max-width: 620px;
+    max-width: 650px;
     width: 100%;
 
-    @include respond-to-max(tablet) {
+    display: flex;
+    flex-direction: column;
+
+    @include respond-to-max(desktop) {
       max-width: 100%;
       box-shadow: 4px -2px 16px 0 #1a5858;
       background-image: linear-gradient(220deg, $paleBlue-95 -20%, $mediumGreen-95);
@@ -186,11 +225,17 @@ header#header-style-1 {
       align-items: center;
       box-sizing: border-box;
       
-      padding: $bodyPadding3 $bodyPadding2 $bodyPadding3 $bodyPadding3;
+      padding: $bodyPadding4 $bodyPadding2 $bodyPadding3 $bodyPadding3;
 
       @include respond-to(tablet) {
+        padding: 25vw $bodyPadding2 $bodyPadding3 $bodyPadding3;
+      }
+
+      @include respond-to(desktop) {
         height: 100vh;
-        padding: $bodyPadding0 $bodyPadding2 $bodyPadding2;
+        padding-top: 0;
+        padding-bottom: $bodyPadding0;
+        padding-left: $bodyPadding2;
       }
 
       .torque-menu-item-wrapper {
@@ -203,7 +248,7 @@ header#header-style-1 {
           }
         }
 
-        @include respond-to(tablet) {
+        @include respond-to(desktop) {
           text-align: left;
         }
 
@@ -225,7 +270,7 @@ header#header-style-1 {
     .svg-background {
       display: none;
 
-      @include respond-to(tablet) {
+      @include respond-to(desktop) {
         display: block;
         position: absolute;
         top: 0;
@@ -244,7 +289,7 @@ header#header-style-1 {
     .menu-overlay {
       display: none;
 
-      @include respond-to(tablet) {
+      @include respond-to(desktop) {
         display: block;
         position: fixed;
         top: 0;
