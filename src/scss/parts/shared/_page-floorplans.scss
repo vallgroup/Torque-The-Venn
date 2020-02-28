@@ -4,7 +4,7 @@
   .FloorplansContainer {
     width: 100%;
     box-sizing: border-box;
-    padding: $bodyPadding1;
+    padding: 0 $bodyPadding1 $bodyPadding1;
 
     // single item
     .FloorplanContainer {
@@ -30,14 +30,10 @@
         padding: 0 35px 25px 35px;
 
         h3 {
-          font-family: $fontFamilyBody;
+          font-family: $fontFamilyHeading;
           font-weight: bold;
-          font-size: 1.125em; // ~18px
+          font-size: 2.5em; // ~18px
           text-transform: uppercase;
-
-          @include respond-to(desktop) {
-            font-size: 1.375em; // ~18px
-          }
         }
 
         .DetailsContainer {
@@ -59,7 +55,9 @@
             .DetailName {
               text-transform: uppercase;
             }
-            // .DetailValue {}
+            .DetailValue {
+              text-transform: capitalize;
+            }
           }
         }
       }
