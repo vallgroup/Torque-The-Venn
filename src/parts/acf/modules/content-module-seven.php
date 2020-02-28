@@ -6,6 +6,7 @@
 
 // options
 $alignment_style_class = 'alignment-' . $align_image;
+$illegal_link_chars = array( ' ', '.', '-', '(', ')' );
 ?>
 
 <div class="content-module-seven-container
@@ -35,7 +36,7 @@ $alignment_style_class = 'alignment-' . $align_image;
         <?php } ?>
 
         <?php if ( $phone ) { ?>
-          <div class="phone-container"><i class="fa fa-phone"></i> <?php echo $phone; ?></div>
+          <div class="phone-container"><i class="fa fa-phone"></i> <a href="tel:<?php echo strip_tags( str_replace( $illegal_link_chars, '', $phone ) ); ?>"><?php echo $phone; ?></a></div>
         <?php } ?>
       </div>
 

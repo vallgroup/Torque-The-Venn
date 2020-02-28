@@ -60,12 +60,6 @@
         @include respond-to(desktop) {
           justify-content: flex-start;
         }
-
-        .button-container {
-          .cta {
-            @extend %useButtonLight;
-          }
-        }
   
         .button-container,
         .phone-container {
@@ -74,6 +68,7 @@
           padding: 10px 0;
           color: $white;
           font-weight: 400;
+          z-index: 1;
 
           @include respond-to(tablet) {
             width: 40%;
@@ -84,8 +79,15 @@
           }
         }
 
+        .button-container {
+          .cta {
+            @extend %useButtonLight;
+          }
+        }
+
         .phone-container {
           font-size: 1.5em; // ~24px
+          text-decoration: none;
         }
       }
 

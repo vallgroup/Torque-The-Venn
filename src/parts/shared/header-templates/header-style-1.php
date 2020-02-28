@@ -25,7 +25,8 @@ $extra_classes .= $enable_notification_bar && !in_array( get_the_ID(), $notifica
   : '';
 
 // Check if hero image in-use. If not, add a header background class
-$extra_classes .= !get_field( 'enable_hero', get_the_ID() )
+$is_grid = empty( $_GET['floorplanId'] );
+$extra_classes .= !get_field( 'enable_hero', get_the_ID() ) || !$is_grid
   ? ' include-header-background'
   : '';
 

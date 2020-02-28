@@ -141,6 +141,7 @@
   }
 }
 
+// regular btn setup
 %useButton_Setup {
   font-size: 1.5em !important; // ~24px
   font-family: $fontFamilyHeading;
@@ -170,15 +171,25 @@
     left: -8.5px;
     top: 6px;
   }
-
-  // &:hover {
-  //   border-width: 1px;
-
-  //   &:after {
-  //     border-width: 1px;
-  //   }
-  // }
 }
+// alt btn setup
+%useButton_Setup_Alt {
+  font-size: 1.125em !important; // ~18px
+  font-family: $fontFamilyHeading;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1.5px solid;
+  display: inline-block;
+  position: relative;
+  padding: 7px 30px;
+  transition: 0.2s;
+
+  @include respond-to(tablet){
+    font-size: 1.5em; // ~24px
+  }
+}
+// regular btns
 %useButtonLight {
   @extend %useButton_Setup;
 
@@ -190,6 +201,21 @@
   
   color: $bluegreen;
   border-color: $bluegreen;
+}
+// alt btns
+%useButtonLight_Alt {
+  @extend %useButton_Setup_Alt;
+
+  color: $white;
+  border-color: $forestGreen;
+  background-color: $forestGreen;
+}
+%useButtonDark_Alt {
+  @extend %useButton_Setup_Alt;
+  
+  color: $forestGreen;
+  border-color: $forestGreen;
+  background-color: $white;
 }
 
 %useBackgroundGraphicContainer {
