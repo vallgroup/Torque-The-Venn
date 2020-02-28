@@ -60,6 +60,7 @@ h2 {
   font-family: $fontFamilyBody;
   margin-top: 0;
   color: $bluegreen;
+  line-height: 1.1;
   
   // @include respond-to(tablet) {}
   @include respond-to(desktop) {
@@ -106,6 +107,22 @@ h5 {
   }
   @include respond-to(desktop) {
     font-size: 1.875em; // ~30px
+  }
+}DOES NOT A PPLY TO THE RENT CAFE PAGES
+
+Currently in Customize panel
+
+
+ul {
+	list-style-type: none;
+  line-height:1.4em;
+  
+  li {
+    text-indent: -20px;
+    
+    &:before {
+      content: "— ";
+    }
   }
 }
 
