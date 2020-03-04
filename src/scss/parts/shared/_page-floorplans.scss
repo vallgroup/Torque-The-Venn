@@ -176,6 +176,8 @@
 
 
   .FiltersContainer {
+    max-width: 1400px;
+    box-sizing: border-box;
 
     .FilterContainer {
       padding: 10px 0;
@@ -188,7 +190,7 @@
         flex: 1 1 100%;
 
         @include respond-to(desktop) {
-          flex: 0 0 45%;
+          flex: 0 0 65%;
         }
       }
       &:nth-child(2) {
@@ -198,24 +200,25 @@
           flex: 0 0 50%;
         }
         @include respond-to(desktop) {
-          flex: 0 0 25%;
+          flex: 0 0 35%;
         }
       }
       &:nth-child(3) {
+        display: none;
+
+        @include respond-to(desktop) {
+          display: block;
+          flex: 0 0 35%;
+        }
+      }
+      &:nth-child(4) {
         flex: 1 1 100%;
 
         @include respond-to(tablet) {
           flex: 0 0 50%;
         }
         @include respond-to(desktop) {
-          flex: 0 0 30%;
-        }
-      }
-      &:nth-child(4) {
-        display: none;
-        
-        @include respond-to(desktop) {
-          display: block;
+          flex: 0 0 65%;
         }
       }
       &:nth-child(5) {
