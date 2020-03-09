@@ -92,6 +92,7 @@
     }
   }
 
+
   // detailed view
   .FloorplanDetailContainer {
     width: 100%;
@@ -147,14 +148,25 @@
     }
 
     .FloorplanImageContainer {
+      text-align: center;
 
       @include respond-to-max(desktop) {
         flex: 1 1 100%;
       }
 
-      .FloorplanThumbnailContainer {
+      .FloorplanImage {
+        margin-bottom: 50px;
+      }
 
-        img {
+      .FloorplanThumbnailContainer {
+        flex-direction: initial;
+        justify-content: center;
+
+
+        img.FloorplanThumbnail {
+          margin: 2%;
+          padding: 20px;
+          
           @include respond-to-max(desktop) {
             flex: 0 0 50%;
             max-width: 280px;
@@ -165,6 +177,7 @@
   }
 
 
+  // filters
   .FiltersContainer {
     max-width: 1400px;
     box-sizing: border-box;
