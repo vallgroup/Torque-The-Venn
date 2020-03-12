@@ -154,6 +154,7 @@ function output_head_additions(){ ?>
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'UA-152242118-1');
+	  gtag('config', 'AW-661671957');
   </script>
 
   <!-- Facebook Pixel Code -->
