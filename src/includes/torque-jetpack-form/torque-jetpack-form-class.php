@@ -10,8 +10,8 @@ class Torque_Jetpack_Form {
   private $built_form_shortcode = null;
 
   private $allowed_args = array(
-    'email_notification_subject'  => 'to',
-    'send_notification_to'        => 'subject',
+    'email_notification_subject'  => 'subject',
+    'send_notification_to'        => 'to',
     'submit_button_text'          => 'submit_button_text'
   );
 
