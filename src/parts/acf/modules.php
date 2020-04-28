@@ -3,6 +3,11 @@
 $modules = 'content_modules';
 $modules_path = '/parts/acf/modules/';
 
+// allowable tags
+$allowable_title_tags = '<i><b><em><strong>';
+$allowable_tagline_tags = '<blockquote><a><ul><ol><li><i><b><em><strong><p><br><table><tbody><thead><td><tr>';
+$allowable_content_tags = '<blockquote><a><ul><ol><li><i><b><em><strong><p><br><table><tbody><thead><td><tr><img>';
+
 if ( have_rows( $modules ) ) :
 
   while ( have_rows( $modules ) ) : the_row();
@@ -40,9 +45,9 @@ if ( have_rows( $modules ) ) :
         $include_graphic = $options['include_graphic'];
         $alternate_graphic = $options['alternate_graphic'];
         // data
-        $title = strip_tags( get_sub_field( 'title' ), '<i><b><em><strong>' );
-        $tagline = strip_tags( get_sub_field( 'tagline'), '<i><b><em><strong><p><br>' );
-        $content = strip_tags( get_sub_field( 'content'), '<i><b><em><strong><p><br><img>' );
+        $title = strip_tags( get_sub_field( 'title' ), $allowable_title_tags );
+        $tagline = strip_tags( get_sub_field( 'tagline'), $allowable_tagline_tags );
+        $content = strip_tags( get_sub_field( 'content'), $allowable_content_tags );
         $icons_and_text = 'icons_and_text';
         $call_to_action = get_sub_field( 'call_to_action' );
 
@@ -65,10 +70,10 @@ if ( have_rows( $modules ) ) :
           ? 'hide_tr'
           : '';
         $tr_title = isset( $top_row['title'] )
-          ? strip_tags( $top_row['title'], '<i><b><em><strong>' )
+          ? strip_tags( $top_row['title'], $allowable_title_tags )
           : null;
         $tr_content = isset( $top_row['content'] )
-          ? strip_tags( $top_row['content'], '<i><b><em><strong><p><br>' )
+          ? strip_tags( $top_row['content'], $allowable_content_tags )
           : null;
         $tr_call_to_action = isset( $top_row['call_to_action'] )
           ? $top_row['call_to_action']
@@ -80,10 +85,10 @@ if ( have_rows( $modules ) ) :
           ? 'hide_br'
           : '';
         $br_title = isset( $bottom_row['title'] )
-          ? strip_tags( $bottom_row['title'], '<i><b><em><strong>' )
+          ? strip_tags( $bottom_row['title'], $allowable_title_tags )
           : null;
         $br_content = isset( $bottom_row['content'] )
-          ? strip_tags( $bottom_row['content'], '<i><b><em><strong><p><br>' )
+          ? strip_tags( $bottom_row['content'], $allowable_content_tags )
           : null;
         $br_call_to_action = isset( $bottom_row['call_to_action'] )
           ? $bottom_row['call_to_action']
@@ -119,12 +124,12 @@ if ( have_rows( $modules ) ) :
         $align_content = $options['align_content'];
         // left column
         $left_column = get_sub_field( 'left_column' );
-        $lc_title = strip_tags( $left_column['title'], '<i><b><em><strong>' );
-        $lc_content = strip_tags( $left_column['content'], '<a><ul><ol><li><i><b><em><strong><p><br>' );
+        $lc_title = strip_tags( $left_column['title'], $allowable_title_tags );
+        $lc_content = strip_tags( $left_column['content'], $allowable_content_tags );
         // right column
         $right_column = get_sub_field( 'right_column' );
-        $rc_title = strip_tags( $right_column['title'], '<i><b><em><strong>' );
-        $rc_content = strip_tags( $right_column['content'], '<a><ul><ol><li><i><b><em><strong><p><br>' );
+        $rc_title = strip_tags( $right_column['title'], $allowable_title_tags );
+        $rc_content = strip_tags( $right_column['content'], $allowable_content_tags );
 
         include locate_template( $modules_path . 'content-module-four.php' );
 
@@ -147,8 +152,8 @@ if ( have_rows( $modules ) ) :
         $options = get_sub_field( 'options' );
         $alignment_style = $options['alignment_style'];
         // data
-        $title = strip_tags( get_sub_field( 'title' ), '<i><b><em><strong>' );
-        $content = strip_tags( get_sub_field( 'content'), '<i><b><em><strong><p><br>' );
+        $title = strip_tags( get_sub_field( 'title' ), $allowable_title_tags );
+        $content = strip_tags( get_sub_field( 'content'), $allowable_content_tags );
 
         include locate_template( $modules_path . 'content-module-six.php' );
 
@@ -162,7 +167,7 @@ if ( have_rows( $modules ) ) :
         $align_image = $options['align_image'];
         // data
         $image = get_sub_field( 'image' );
-        $title = strip_tags( get_sub_field( 'title' ), '<i><b><em><strong>' );
+        $title = strip_tags( get_sub_field( 'title' ), $allowable_title_tags );
         $button = get_sub_field( 'button' );
         $phone = strip_tags( get_sub_field( 'phone') );
 
@@ -184,7 +189,7 @@ if ( have_rows( $modules ) ) :
       case 'content_module_nine' :
         
         // data
-        $title = strip_tags( get_sub_field( 'title' ), '<i><b><em><strong>' );
+        $title = strip_tags( get_sub_field( 'title' ), $allowable_title_tags );
         $map_id = get_sub_field( 'map_id' );
 
         include locate_template( $modules_path . 'content-module-nine.php' );
