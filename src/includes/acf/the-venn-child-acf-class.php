@@ -28,7 +28,8 @@ class The_Venn_ACF {
   // }
 
   public function acf_init() {
-    // add content sections here
+
+    // start ACF fields
 
     if( function_exists('acf_add_local_field_group') ):
 
@@ -1343,7 +1344,7 @@ class The_Venn_ACF {
                     'required' => 0,
                     'conditional_logic' => 0,
                     'wrapper' => array(
-                      'width' => '50',
+                      'width' => '100',
                       'class' => '',
                       'id' => '',
                     ),
@@ -1407,7 +1408,7 @@ class The_Venn_ACF {
                     'required' => 0,
                     'conditional_logic' => 0,
                     'wrapper' => array(
-                      'width' => '50',
+                      'width' => '100',
                       'class' => '',
                       'id' => '',
                     ),
@@ -1526,13 +1527,75 @@ class The_Venn_ACF {
                     'layout' => 'block',
                     'sub_fields' => array(
                       array(
+                        'key' => 'field_5e4c29adee2f2',
+                        'label' => 'Hide Row?',
+                        'name' => 'hide_row',
+                        'type' => 'true_false',
+                        'instructions' => 'Toggle to hide the row, if using only one of the two rows.',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                          'width' => '50',
+                          'class' => '',
+                          'id' => '',
+                        ),
+                        'message' => '',
+                        'default_value' => 0,
+                        'ui' => 1,
+                        'ui_on_text' => '',
+                        'ui_off_text' => '',
+                      ),
+                      array(
+                        'key' => 'field_5ec9d78855813',
+                        'label' => 'Media Type',
+                        'name' => 'media_type',
+                        'type' => 'select',
+                        'instructions' => 'Select the type of media you\'d like to use in this row.',
+                        'required' => 0,
+                        'conditional_logic' => array(
+                          array(
+                            array(
+                              'field' => 'field_5e4c29adee2f2',
+                              'operator' => '!=',
+                              'value' => '1',
+                            ),
+                          ),
+                        ),
+                        'wrapper' => array(
+                          'width' => '50',
+                          'class' => '',
+                          'id' => '',
+                        ),
+                        'choices' => array(
+                          'image' => 'Image',
+                          'iframe' => 'Iframe',
+                        ),
+                        'default_value' => array(
+                          0 => 'image',
+                        ),
+                        'allow_null' => 0,
+                        'multiple' => 0,
+                        'ui' => 1,
+                        'ajax' => 0,
+                        'return_format' => 'value',
+                        'placeholder' => '',
+                      ),
+                      array(
                         'key' => 'field_5e34c5f4808af',
                         'label' => 'Title',
                         'name' => 'title',
                         'type' => 'text',
                         'instructions' => 'Wrap words in tags to place emphasis on them: https://www.w3schools.com/html/html_formatting.asp',
                         'required' => 0,
-                        'conditional_logic' => 0,
+                        'conditional_logic' => array(
+                          array(
+                            array(
+                              'field' => 'field_5e4c29adee2f2',
+                              'operator' => '!=',
+                              'value' => '1',
+                            ),
+                          ),
+                        ),
                         'wrapper' => array(
                           'width' => '50',
                           'class' => '',
@@ -1551,7 +1614,15 @@ class The_Venn_ACF {
                         'type' => 'textarea',
                         'instructions' => '',
                         'required' => 0,
-                        'conditional_logic' => 0,
+                        'conditional_logic' => array(
+                          array(
+                            array(
+                              'field' => 'field_5e4c29adee2f2',
+                              'operator' => '!=',
+                              'value' => '1',
+                            ),
+                          ),
+                        ),
                         'wrapper' => array(
                           'width' => '50',
                           'class' => '',
@@ -1570,9 +1641,17 @@ class The_Venn_ACF {
                         'type' => 'link',
                         'instructions' => '',
                         'required' => 0,
-                        'conditional_logic' => 0,
+                        'conditional_logic' => array(
+                          array(
+                            array(
+                              'field' => 'field_5e4c29adee2f2',
+                              'operator' => '!=',
+                              'value' => '1',
+                            ),
+                          ),
+                        ),
                         'wrapper' => array(
-                          'width' => '33.33',
+                          'width' => '50',
                           'class' => '',
                           'id' => '',
                         ),
@@ -1585,9 +1664,22 @@ class The_Venn_ACF {
                         'type' => 'image',
                         'instructions' => '',
                         'required' => 0,
-                        'conditional_logic' => 0,
+                        'conditional_logic' => array(
+                          array(
+                            array(
+                              'field' => 'field_5e4c29adee2f2',
+                              'operator' => '!=',
+                              'value' => '1',
+                            ),
+                            array(
+                              'field' => 'field_5ec9d78855813',
+                              'operator' => '==',
+                              'value' => 'image',
+                            ),
+                          ),
+                        ),
                         'wrapper' => array(
-                          'width' => '33.33',
+                          'width' => '50',
                           'class' => '',
                           'id' => '',
                         ),
@@ -1603,23 +1695,33 @@ class The_Venn_ACF {
                         'mime_types' => '',
                       ),
                       array(
-                        'key' => 'field_5e4c29adee2f2',
-                        'label' => 'Hide Row?',
-                        'name' => 'hide_row',
-                        'type' => 'true_false',
-                        'instructions' => 'Toggle to hide the row, if using only one of the two rows.',
+                        'key' => 'field_5ec9d83c55815',
+                        'label' => 'Iframe',
+                        'name' => 'iframe',
+                        'type' => 'url',
+                        'instructions' => 'Enter the iframe URL here.',
                         'required' => 0,
-                        'conditional_logic' => 0,
+                        'conditional_logic' => array(
+                          array(
+                            array(
+                              'field' => 'field_5e4c29adee2f2',
+                              'operator' => '!=',
+                              'value' => '1',
+                            ),
+                            array(
+                              'field' => 'field_5ec9d78855813',
+                              'operator' => '==',
+                              'value' => 'iframe',
+                            ),
+                          ),
+                        ),
                         'wrapper' => array(
-                          'width' => '33.33',
+                          'width' => '50',
                           'class' => '',
                           'id' => '',
                         ),
-                        'message' => '',
-                        'default_value' => 0,
-                        'ui' => 1,
-                        'ui_on_text' => '',
-                        'ui_off_text' => '',
+                        'default_value' => '',
+                        'placeholder' => '',
                       ),
                     ),
                   ),
@@ -1639,13 +1741,75 @@ class The_Venn_ACF {
                     'layout' => 'block',
                     'sub_fields' => array(
                       array(
+                        'key' => 'field_5e4c29dfee2f3',
+                        'label' => 'Hide Row?',
+                        'name' => 'hide_row',
+                        'type' => 'true_false',
+                        'instructions' => 'Toggle to hide the row, if using only one of the two rows.',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                          'width' => '50',
+                          'class' => '',
+                          'id' => '',
+                        ),
+                        'message' => '',
+                        'default_value' => 0,
+                        'ui' => 1,
+                        'ui_on_text' => '',
+                        'ui_off_text' => '',
+                      ),
+                      array(
+                        'key' => 'field_5ec9dab201f2f',
+                        'label' => 'Media Type',
+                        'name' => 'media_type',
+                        'type' => 'select',
+                        'instructions' => 'Select the type of media you\'d like to use in this row.',
+                        'required' => 0,
+                        'conditional_logic' => array(
+                          array(
+                            array(
+                              'field' => 'field_5e4c29dfee2f3',
+                              'operator' => '!=',
+                              'value' => '1',
+                            ),
+                          ),
+                        ),
+                        'wrapper' => array(
+                          'width' => '50',
+                          'class' => '',
+                          'id' => '',
+                        ),
+                        'choices' => array(
+                          'image' => 'Image',
+                          'iframe' => 'Iframe',
+                        ),
+                        'default_value' => array(
+                          0 => 'image',
+                        ),
+                        'allow_null' => 0,
+                        'multiple' => 0,
+                        'ui' => 1,
+                        'ajax' => 0,
+                        'return_format' => 'value',
+                        'placeholder' => '',
+                      ),
+                      array(
                         'key' => 'field_5e34cb7e8fbf3',
                         'label' => 'Title',
                         'name' => 'title',
                         'type' => 'text',
                         'instructions' => 'Wrap words in tags to place emphasis on them: https://www.w3schools.com/html/html_formatting.asp',
                         'required' => 0,
-                        'conditional_logic' => 0,
+                        'conditional_logic' => array(
+                          array(
+                            array(
+                              'field' => 'field_5e4c29dfee2f3',
+                              'operator' => '!=',
+                              'value' => '1',
+                            ),
+                          ),
+                        ),
                         'wrapper' => array(
                           'width' => '50',
                           'class' => '',
@@ -1664,7 +1828,15 @@ class The_Venn_ACF {
                         'type' => 'textarea',
                         'instructions' => '',
                         'required' => 0,
-                        'conditional_logic' => 0,
+                        'conditional_logic' => array(
+                          array(
+                            array(
+                              'field' => 'field_5e4c29dfee2f3',
+                              'operator' => '!=',
+                              'value' => '1',
+                            ),
+                          ),
+                        ),
                         'wrapper' => array(
                           'width' => '50',
                           'class' => '',
@@ -1683,9 +1855,17 @@ class The_Venn_ACF {
                         'type' => 'link',
                         'instructions' => '',
                         'required' => 0,
-                        'conditional_logic' => 0,
+                        'conditional_logic' => array(
+                          array(
+                            array(
+                              'field' => 'field_5e4c29dfee2f3',
+                              'operator' => '!=',
+                              'value' => '1',
+                            ),
+                          ),
+                        ),
                         'wrapper' => array(
-                          'width' => '33.33',
+                          'width' => '50',
                           'class' => '',
                           'id' => '',
                         ),
@@ -1698,9 +1878,22 @@ class The_Venn_ACF {
                         'type' => 'image',
                         'instructions' => '',
                         'required' => 0,
-                        'conditional_logic' => 0,
+                        'conditional_logic' => array(
+                          array(
+                            array(
+                              'field' => 'field_5e4c29dfee2f3',
+                              'operator' => '!=',
+                              'value' => '1',
+                            ),
+                            array(
+                              'field' => 'field_5ec9dab201f2f',
+                              'operator' => '==',
+                              'value' => 'image',
+                            ),
+                          ),
+                        ),
                         'wrapper' => array(
-                          'width' => '33.33',
+                          'width' => '50',
                           'class' => '',
                           'id' => '',
                         ),
@@ -1716,23 +1909,33 @@ class The_Venn_ACF {
                         'mime_types' => '',
                       ),
                       array(
-                        'key' => 'field_5e4c29dfee2f3',
-                        'label' => 'Hide Row?',
-                        'name' => 'hide_row',
-                        'type' => 'true_false',
-                        'instructions' => 'Toggle to hide the row, if using only one of the two rows.',
+                        'key' => 'field_5ec9daef01f31',
+                        'label' => 'Iframe',
+                        'name' => 'iframe',
+                        'type' => 'url',
+                        'instructions' => 'Enter the iframe URL here.',
                         'required' => 0,
-                        'conditional_logic' => 0,
+                        'conditional_logic' => array(
+                          array(
+                            array(
+                              'field' => 'field_5e4c29dfee2f3',
+                              'operator' => '!=',
+                              'value' => '1',
+                            ),
+                            array(
+                              'field' => 'field_5ec9dab201f2f',
+                              'operator' => '==',
+                              'value' => 'iframe',
+                            ),
+                          ),
+                        ),
                         'wrapper' => array(
-                          'width' => '33.33',
+                          'width' => '50',
                           'class' => '',
                           'id' => '',
                         ),
-                        'message' => '',
-                        'default_value' => 0,
-                        'ui' => 1,
-                        'ui_on_text' => '',
-                        'ui_off_text' => '',
+                        'default_value' => '',
+                        'placeholder' => '',
                       ),
                     ),
                   ),
@@ -2662,6 +2865,53 @@ class The_Venn_ACF {
                 'min' => '',
                 'max' => '',
               ),
+              'layout_5ec9e287d7bb5' => array(
+                'key' => 'layout_5ec9e287d7bb5',
+                'name' => 'content_module_ten',
+                'label' => 'Iframe Gallery',
+                'display' => 'block',
+                'sub_fields' => array(
+                  array(
+                    'key' => 'field_5ec9e287d7bb6',
+                    'label' => 'Iframe Gallery',
+                    'name' => 'iframe_gallery',
+                    'type' => 'repeater',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                      'width' => '',
+                      'class' => '',
+                      'id' => '',
+                    ),
+                    'collapsed' => 'field_5ec9e2b7d7bb7',
+                    'min' => 1,
+                    'max' => 0,
+                    'layout' => 'row',
+                    'button_label' => 'Add iframe',
+                    'sub_fields' => array(
+                      array(
+                        'key' => 'field_5ec9e2b7d7bb7',
+                        'label' => 'URL',
+                        'name' => 'url',
+                        'type' => 'url',
+                        'instructions' => 'Enter the iframe URL here.',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                          'width' => '',
+                          'class' => '',
+                          'id' => '',
+                        ),
+                        'default_value' => '',
+                        'placeholder' => '',
+                      ),
+                    ),
+                  ),
+                ),
+                'min' => '',
+                'max' => '',
+              ),
             ),
             'button_label' => 'Add Content Module',
             'min' => '',
@@ -2694,6 +2944,7 @@ class The_Venn_ACF {
       
       endif;
 
+    // end ACF fields
   }
 }
 

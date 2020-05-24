@@ -55,7 +55,7 @@ if ( have_rows( $modules ) ) :
 
         break;
 
-      // Offset Content & Image Grid
+      // Two Row Offset Content & Image Grid
       case 'content_module_two' :
 
         // options
@@ -69,6 +69,9 @@ if ( have_rows( $modules ) ) :
         $hide_tr = isset( $top_row['hide_row'] ) && $top_row['hide_row']
           ? 'hide_tr'
           : '';
+        $tr_media_type = isset( $top_row['media_type'] )
+          ? $top_row['media_type']
+          : null;
         $tr_title = isset( $top_row['title'] )
           ? strip_tags( $top_row['title'], $allowable_title_tags )
           : null;
@@ -78,12 +81,20 @@ if ( have_rows( $modules ) ) :
         $tr_call_to_action = isset( $top_row['call_to_action'] )
           ? $top_row['call_to_action']
           : null;
-        $tr_image = $top_row['image'];
+        $tr_image = isset( $top_row['image'] )
+          ? $top_row['image']
+          : null;
+        $tr_iframe = isset( $top_row['iframe'] )
+          ? $top_row['iframe']
+          : null;
         // bottom row
         $bottom_row = get_sub_field( 'bottom_row' );
         $hide_br = isset( $bottom_row['hide_row'] ) && $bottom_row['hide_row']
           ? 'hide_br'
           : '';
+        $br_media_type = isset( $bottom_row['media_type'] )
+          ? $bottom_row['media_type']
+          : null;
         $br_title = isset( $bottom_row['title'] )
           ? strip_tags( $bottom_row['title'], $allowable_title_tags )
           : null;
@@ -95,6 +106,9 @@ if ( have_rows( $modules ) ) :
           : null;
         $br_image = isset( $bottom_row['image'] )
           ? $bottom_row['image']
+          : null;
+        $br_iframe = isset( $bottom_row['iframe'] )
+          ? $bottom_row['iframe']
           : null;
 
         include locate_template( $modules_path . 'content-module-two.php' );
@@ -193,6 +207,15 @@ if ( have_rows( $modules ) ) :
         $map_id = get_sub_field( 'map_id' );
 
         include locate_template( $modules_path . 'content-module-nine.php' );
+
+        break;
+
+      // Iframe Gallery
+      case 'content_module_ten' :
+        
+        // data
+        $iframes = 'iframe_gallery';
+        include locate_template( $modules_path . 'content-module-ten.php' );
 
         break;
 

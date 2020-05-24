@@ -1,0 +1,26 @@
+.content-module-ten-container {
+  position: relative;
+  width: 100%;
+
+  box-sizing: border-box;
+  padding: $bodyPadding1 $bodyPadding1 $bodyPadding0;
+
+  .content-wrapper {
+    .iframe-wrapper {
+      position: relative;
+      // padding-bottom: 56.25%;
+      padding-bottom: 39%;
+      height: 0;
+      margin-bottom: $bodyPadding0;
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    }
+  }
+}

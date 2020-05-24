@@ -47,13 +47,26 @@ $alignment_style_class = 'alignment-' . $alignment_style;
 
     </div>
 
-    <div class="image-container">
-      <?php if ( $tr_image ) { ?>
-        <div class="image-wrapper">
-          <img src="<?php echo $tr_image['sizes']['large']; ?>"/>
-        </div>
-      <?php } ?>
-    </div>
+    <?php if ( 'image' === $tr_media_type ) { ?>
+      <div class="image-container">
+        <?php if ( $tr_image ) { ?>
+          <div class="image-wrapper">
+            <img src="<?php echo $tr_image['sizes']['large']; ?>"/>
+          </div>
+        <?php } ?>
+      </div>
+    <?php } elseif ( 'iframe' === $tr_media_type ) { ?>
+      <div class="iframe-container">
+        <?php if ( $tr_iframe ) { ?>
+          <div class="iframe-wrapper">
+            <iframe
+              src="<?php echo $tr_iframe; ?>"
+              allow
+            ></iframe>
+          </div>
+        <?php } ?>
+      </div>
+    <?php } ?>
 
   </div>
   
@@ -78,13 +91,23 @@ $alignment_style_class = 'alignment-' . $alignment_style;
           
     </div>
 
-    <div class="image-container">
-      <?php if ( $br_image ) { ?>
-        <div class="image-wrapper">
-          <img src="<?php echo $br_image['sizes']['large']; ?>"/>
-        </div>
-      <?php } ?>
-    </div>
+    <?php if ( 'image' === $br_media_type ) { ?>
+      <div class="image-container">
+        <?php if ( $br_image ) { ?>
+          <div class="image-wrapper">
+            <img src="<?php echo $br_image['sizes']['large']; ?>"/>
+          </div>
+        <?php } ?>
+      </div>
+    <?php } elseif ( 'iframe' === $br_media_type ) { ?>
+      <div class="iframe-container">
+        <?php if ( $br_iframe ) { ?>
+          <div class="iframe-wrapper">
+            <iframe src="<?php echo $br_iframe; ?>"></iframe>
+          </div>
+        <?php } ?>
+      </div>
+    <?php } ?>
     
   </div>
 

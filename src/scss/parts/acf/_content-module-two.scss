@@ -47,6 +47,25 @@
         }
       }
     }
+
+    .iframe-container {
+      width: 100%;
+      
+      .iframe-wrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border: 0;
+        }
+      }
+    }
   }
 
   // shared style for top row
@@ -102,6 +121,9 @@
       .image-container {
         flex: 2;
       }
+      .iframe-container {
+        flex: 2;
+      }
     }
     .bottom-row-container {
       flex-direction: column-reverse; // image top, content bottom
@@ -131,6 +153,27 @@
           flex: 1;
 
           .image-wrapper img {
+            width: 100%;
+          }
+        }
+      }
+      .iframe-container {
+        @include respond-to(tablet) {
+          flex: 2;
+
+          .iframe-wrapper {
+            overflow: hidden;
+            
+            iframe {
+              width: 120%;
+            }
+          }
+        }
+
+        @include respond-to(desktop) {
+          flex: 1;
+
+          .iframe-wrapper iframe {
             width: 100%;
           }
         }
@@ -171,6 +214,9 @@
       .image-container {
         flex: 2;
       }
+      .iframe-container {
+        flex: 2;
+      }
     }
     .bottom-row-container {
       flex-direction: column-reverse;
@@ -200,6 +246,28 @@
           flex: 1;
 
           .image-wrapper img {
+            width: 100%;
+          }
+        }
+      }
+      .iframe-container {
+        @include respond-to(tablet) {
+          width: 100%;
+          flex: 2;
+
+          .iframe-wrapper {
+            overflow: hidden;
+            
+            iframe {
+              width: 120%;
+            }
+          }
+        }
+
+        @include respond-to(desktop) {
+          flex: 1;
+
+          .iframe-wrapper iframe {
             width: 100%;
           }
         }
