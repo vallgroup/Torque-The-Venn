@@ -51,7 +51,7 @@ $alignment_style_class = 'alignment-' . $alignment_style;
       <div class="image-container">
         <?php if ( $tr_image ) { ?>
           <div class="image-wrapper">
-            <img src="<?php echo $tr_image['sizes']['large']; ?>"/>
+            <img src="<?php echo $tr_image['sizes']['large']; ?>" alt="<?php echo $tr_image['alt']; ?>" />
           </div>
         <?php } ?>
       </div>
@@ -95,7 +95,7 @@ $alignment_style_class = 'alignment-' . $alignment_style;
       <div class="image-container">
         <?php if ( $br_image ) { ?>
           <div class="image-wrapper">
-            <img src="<?php echo $br_image['sizes']['large']; ?>"/>
+            <img src="<?php echo $br_image['sizes']['large']; ?>" alt="<?php echo $br_image['alt']; ?>" />
           </div>
         <?php } ?>
       </div>

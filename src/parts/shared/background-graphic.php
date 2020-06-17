@@ -31,7 +31,7 @@ if ( $include_graphic ) :
   ?>
 
   <div class="background-graphic-container <?php echo $align_graphic_class; ?>">
-    <img src="<?php echo $image_path; ?>">
+    <img src="<?php echo $image_path; ?>" alt="background graphic">
   </div>
 
 <?php endif;

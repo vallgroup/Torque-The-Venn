@@ -20,7 +20,7 @@ $alignment_style_class = 'alignment-' . $align_image;
   <div class="image-container">
     <?php if ( $image ) { ?>
       <div class="image-wrapper">
-        <img src="<?php echo $image['sizes']['large']; ?>"/>
+        <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" />
       </div>
     <?php } ?>
   </div>
