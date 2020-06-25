@@ -92,6 +92,10 @@ class Torque_Jetpack_Form {
       echo '<div class="form-container' . $extra_form_classes . '">';
       // execute shortcode
       echo do_shortcode( $this->built_form_shortcode );
+      // output Google reCAPTCHA if plugin activated
+      if ( class_exists( 'Torque_Recaptcha' ) ) {
+        echo do_shortcode( '[torque_recaptcha]' );
+      }
       echo '</div>';
     }
   }
