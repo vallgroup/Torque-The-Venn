@@ -28,6 +28,10 @@ $illegal_link_chars = array( ' ', '.', '-', '(', ')' );
         <h1><?php echo $title; ?></h1>
       <?php } ?>
 
+      <?php if ( $tagline ) { ?>
+        <div class="content-tagline"><?php echo $tagline; ?></div>
+      <?php } ?>
+
       <div class="cta-wrapper">
         <?php if ( $button ) { ?>
           <div class="button-container">

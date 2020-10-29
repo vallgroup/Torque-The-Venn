@@ -781,7 +781,7 @@
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "50",
+                            "width": "100",
                             "class": "",
                             "id": ""
                         },
@@ -792,6 +792,25 @@
                         "maxlength": ""
                     },
                     {
+                        "key": "field_5f9a390efe7de",
+                        "label": "Tagline",
+                        "name": "tagline",
+                        "type": "wysiwyg",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "100",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "tabs": "all",
+                        "toolbar": "full",
+                        "media_upload": 0,
+                        "delay": 0
+                    },
+                    {
                         "key": "field_5e5079aacf8c9",
                         "label": "Button",
                         "name": "button",
@@ -800,7 +819,7 @@
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "25",
+                            "width": "50",
                             "class": "",
                             "id": ""
                         },
@@ -815,7 +834,7 @@
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "25",
+                            "width": "50",
                             "class": "",
                             "id": ""
                         },
@@ -1153,6 +1172,104 @@
                         "display": "block",
                         "sub_fields": [
                             {
+                                "key": "field_5e349126dc062",
+                                "label": "Content",
+                                "name": "content",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "tabs": "visual",
+                                "toolbar": "basic",
+                                "media_upload": 1,
+                                "delay": 0
+                            },
+                            {
+                                "key": "field_5e55bc9ebcdb7",
+                                "label": "Icons & Text",
+                                "name": "icons_and_text",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "100",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "collapsed": "",
+                                "min": 0,
+                                "max": 0,
+                                "layout": "row",
+                                "button_label": "Add Column",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_5e55bd2a6fd5a",
+                                        "label": "Icon",
+                                        "name": "icon",
+                                        "type": "image",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "return_format": "url",
+                                        "preview_size": "thumbnail",
+                                        "library": "all",
+                                        "min_width": "",
+                                        "min_height": "",
+                                        "min_size": "",
+                                        "max_width": "",
+                                        "max_height": "",
+                                        "max_size": "",
+                                        "mime_types": ""
+                                    },
+                                    {
+                                        "key": "field_5e55bd476fd5b",
+                                        "label": "Text",
+                                        "name": "text",
+                                        "type": "text",
+                                        "instructions": "Wrap words in tags to place emphasis on them: https:\/\/www.w3schools.com\/html\/html_formatting.asp",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": ""
+                                    }
+                                ]
+                            },
+                            {
+                                "key": "field_5e3493b338e16",
+                                "label": "Call-To-Action",
+                                "name": "call_to_action",
+                                "type": "link",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "100",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array"
+                            },
+                            {
                                 "key": "field_5e3495b0d6334",
                                 "label": "Options",
                                 "name": "options",
@@ -1276,104 +1393,6 @@
                                 "toolbar": "full",
                                 "media_upload": 1,
                                 "delay": 0
-                            },
-                            {
-                                "key": "field_5e349126dc062",
-                                "label": "Content",
-                                "name": "content",
-                                "type": "wysiwyg",
-                                "instructions": "",
-                                "required": 0,
-                                "conditional_logic": 0,
-                                "wrapper": {
-                                    "width": "50",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "default_value": "",
-                                "tabs": "visual",
-                                "toolbar": "basic",
-                                "media_upload": 1,
-                                "delay": 0
-                            },
-                            {
-                                "key": "field_5e55bc9ebcdb7",
-                                "label": "Icons & Text",
-                                "name": "icons_and_text",
-                                "type": "repeater",
-                                "instructions": "",
-                                "required": 0,
-                                "conditional_logic": 0,
-                                "wrapper": {
-                                    "width": "100",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "collapsed": "",
-                                "min": 0,
-                                "max": 0,
-                                "layout": "row",
-                                "button_label": "Add Column",
-                                "sub_fields": [
-                                    {
-                                        "key": "field_5e55bd2a6fd5a",
-                                        "label": "Icon",
-                                        "name": "icon",
-                                        "type": "image",
-                                        "instructions": "",
-                                        "required": 0,
-                                        "conditional_logic": 0,
-                                        "wrapper": {
-                                            "width": "",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "return_format": "url",
-                                        "preview_size": "thumbnail",
-                                        "library": "all",
-                                        "min_width": "",
-                                        "min_height": "",
-                                        "min_size": "",
-                                        "max_width": "",
-                                        "max_height": "",
-                                        "max_size": "",
-                                        "mime_types": ""
-                                    },
-                                    {
-                                        "key": "field_5e55bd476fd5b",
-                                        "label": "Text",
-                                        "name": "text",
-                                        "type": "text",
-                                        "instructions": "Wrap words in tags to place emphasis on them: https:\/\/www.w3schools.com\/html\/html_formatting.asp",
-                                        "required": 0,
-                                        "conditional_logic": 0,
-                                        "wrapper": {
-                                            "width": "",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "default_value": "",
-                                        "placeholder": "",
-                                        "prepend": "",
-                                        "append": "",
-                                        "maxlength": ""
-                                    }
-                                ]
-                            },
-                            {
-                                "key": "field_5e3493b338e16",
-                                "label": "Call-To-Action",
-                                "name": "call_to_action",
-                                "type": "link",
-                                "instructions": "",
-                                "required": 0,
-                                "conditional_logic": 0,
-                                "wrapper": {
-                                    "width": "100",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "return_format": "array"
                             }
                         ],
                         "min": "",
@@ -2620,6 +2639,59 @@
                         "display": "block",
                         "sub_fields": [
                             {
+                                "key": "field_5f9a38c5ba921",
+                                "label": "Tagline",
+                                "name": "tagline",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "delay": 0
+                            },
+                            {
+                                "key": "field_5e4ae960ae737",
+                                "label": "Button",
+                                "name": "button",
+                                "type": "link",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "25",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array"
+                            },
+                            {
+                                "key": "field_5e4ae96eae738",
+                                "label": "Phone",
+                                "name": "phone",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "25",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
                                 "key": "field_5e4ae905ae731",
                                 "label": "Options",
                                 "name": "options",
@@ -2694,40 +2766,6 @@
                                 "conditional_logic": 0,
                                 "wrapper": {
                                     "width": "50",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "default_value": "",
-                                "placeholder": "",
-                                "prepend": "",
-                                "append": "",
-                                "maxlength": ""
-                            },
-                            {
-                                "key": "field_5e4ae960ae737",
-                                "label": "Button",
-                                "name": "button",
-                                "type": "link",
-                                "instructions": "",
-                                "required": 0,
-                                "conditional_logic": 0,
-                                "wrapper": {
-                                    "width": "25",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "return_format": "array"
-                            },
-                            {
-                                "key": "field_5e4ae96eae738",
-                                "label": "Phone",
-                                "name": "phone",
-                                "type": "text",
-                                "instructions": "",
-                                "required": 0,
-                                "conditional_logic": 0,
-                                "wrapper": {
-                                    "width": "25",
                                     "class": "",
                                     "id": ""
                                 },

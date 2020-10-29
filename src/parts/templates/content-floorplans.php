@@ -53,17 +53,20 @@ $is_grid = empty( $_GET['floorplanId'] );
       : null;
     // data
     $image = isset( $floorplans_pg_cta['image'] )
-    ? $floorplans_pg_cta['image']
-    : null;
+      ? $floorplans_pg_cta['image']
+      : null;
     $title = isset( $floorplans_pg_cta['title'] )
-    ? strip_tags( $floorplans_pg_cta['title'], '<i><b><em><strong>' )
-    : null;
+      ? strip_tags( $floorplans_pg_cta['title'], '<i><b><em><strong>' )
+      : null;
+    $tagline = isset( $floorplans_pg_cta['tagline'] )
+      ? strip_tags( $floorplans_pg_cta['tagline'], '<i><b><em><strong>' )
+      : null;
     $button = isset( $floorplans_pg_cta['button'] )
-    ? $floorplans_pg_cta['button']
-    : null;
+      ? $floorplans_pg_cta['button']
+      : null;
     $phone = isset( $floorplans_pg_cta['phone'] )
-    ? strip_tags( $floorplans_pg_cta['phone'] )
-    : null;
+      ? strip_tags( $floorplans_pg_cta['phone'] )
+      : null;
 
     include locate_template( '/parts/acf/modules/content-module-seven.php' );
   ?>
