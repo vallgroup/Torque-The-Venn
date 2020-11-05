@@ -8,7 +8,7 @@
 $alignment_style_class = 'alignment-' . $align_image;
 $illegal_link_chars = array( ' ', '.', '-', '(', ')' );
 
-if ( $floorplans_pg_cta ) { ?>
+?>
 
   <div class="content-module-seven-container
     <?php echo $alignment_style_class; ?>
@@ -50,4 +50,4 @@ if ( $floorplans_pg_cta ) { ?>
     </div>
   </div>
 
-<? } 
+<?
