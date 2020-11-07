@@ -182,6 +182,7 @@ if ( have_rows( $modules ) ) :
         // data
         $image = get_sub_field( 'image' );
         $title = strip_tags( get_sub_field( 'title' ), $allowable_title_tags );
+        $tagline = strip_tags( get_sub_field( 'tagline' ), $allowable_tagline_tags );
         $button = get_sub_field( 'button' );
         $phone = strip_tags( get_sub_field( 'phone') );
 

@@ -10,15 +10,15 @@ $is_grid = empty( $_GET['floorplanId'] );
 ?>
 
 <div class="content-floorplans" >
-  
-  <?php 
+
+  <?php
 
   // content modules
   $is_grid && get_template_part( '/parts/acf/modules' );
-  
+
   // floorplans
-  echo do_shortcode( '[torque_rentcafe income_restricted="true"]' ); 
-  
+  echo do_shortcode( '[torque_rentcafe income_restricted="true"]' );
+
   // gallery
   if ( !$is_grid ) {
     // options
@@ -35,7 +35,7 @@ $is_grid = empty( $_GET['floorplanId'] );
     <div class="content-module-eight-container">
       <div class="content-wrapper">
         <h2>Life at <b>Porte</b></h2>
-        <?php if ( $filtered_gallery_id ) { 
+        <?php if ( $filtered_gallery_id ) {
           echo do_shortcode( '[torque_filtered_gallery gallery_id="' . $filtered_gallery_id . '" hide_filters="' . $hide_filters . '" use_lightbox="' . $use_lightbox . '"]' );
         } ?>
       </div>
@@ -44,7 +44,7 @@ $is_grid = empty( $_GET['floorplanId'] );
 
   <?php
     // CTA banner
-    
+
     // source
     $floorplans_pg_cta = get_field( 'cta_banner', 'options' );
     // options
@@ -53,17 +53,20 @@ $is_grid = empty( $_GET['floorplanId'] );
       : null;
     // data
     $image = isset( $floorplans_pg_cta['image'] )
-    ? $floorplans_pg_cta['image']
-    : null;
+      ? $floorplans_pg_cta['image']
+      : null;
     $title = isset( $floorplans_pg_cta['title'] )
-    ? strip_tags( $floorplans_pg_cta['title'], '<i><b><em><strong>' )
-    : null;
+      ? strip_tags( $floorplans_pg_cta['title'], '<i><b><em><strong>' )
+      : null;
+    $tagline = isset( $floorplans_pg_cta['tagline'] )
+      ? strip_tags( $floorplans_pg_cta['tagline'], '<i><b><em><strong>' )
+      : null;
     $button = isset( $floorplans_pg_cta['button'] )
-    ? $floorplans_pg_cta['button']
-    : null;
+      ? $floorplans_pg_cta['button']
+      : null;
     $phone = isset( $floorplans_pg_cta['phone'] )
-    ? strip_tags( $floorplans_pg_cta['phone'] )
-    : null;
+      ? strip_tags( $floorplans_pg_cta['phone'] )
+      : null;
 
     include locate_template( '/parts/acf/modules/content-module-seven.php' );
   ?>
