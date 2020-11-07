@@ -68,7 +68,7 @@ $is_grid = empty( $_GET['floorplanId'] );
       ? strip_tags( $floorplans_pg_cta['phone'] )
       : null;
 
-    include locate_template( '/parts/acf/modules/content-module-seven.php' );
+    // include locate_template( '/parts/acf/modules/content-module-seven.php' );
   ?>
 
 </div>

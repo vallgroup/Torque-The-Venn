@@ -46,6 +46,21 @@
         float: left;
         width: 100%;
         font-size: 5.0625em;
+        margin-bottom: 0.25em;
+      }
+
+      .content-tagline {
+        @extend %contentTagline;
+        @include max-width(575px);
+        display: inline-block;
+        color: $white;
+        font-family: $fontFamilyBody;
+        margin-bottom: 1.5em;
+  
+        p {
+          display: inline-block;
+          color: $white;
+        }
       }
 
       .cta-wrapper {
